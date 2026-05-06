@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>The rise of AI-assisted phishing — G'Secure Labs</title>
+<meta name="description" content="Why generative AI is changing the phishing landscape and what defenders should do about it."/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+<div class="bg-grid"></div>
+<div id="site-header"></div>
+
+<section class="article-hero">
+  <div class="container">
+    <div class="breadcrumb"><a href="index.html">Home</a> / <a href="insights.html">Insights</a> / Article</div>
+    <div class="meta-row">
+      <span class="pill">Threat Research</span>
+      <span>·</span><span>5 min read</span>
+      <span>·</span><span>Published May 2026</span>
+    </div>
+    <h1>The rise of AI-assisted phishing — what defenders should do now</h1>
+    <p class="lede">Generative AI has lowered the cost of writing convincing phishing lures to near zero. Detection rules that relied on broken grammar are no longer enough. Here's what's changed and where to refocus your controls.</p>
+    <div class="author">
+      <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=200&q=80" alt="Marie Dubois"/>
+      <div>
+        <strong>Marie Dubois</strong>
+        <span>Head of Threat Research</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="article-cover reveal">
+  <img src="https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=1600&q=80" alt="Abstract data visualization"/>
+</div>
+
+<article class="article-body">
+  <p>For more than a decade, phishing awareness training leaned on a comforting fiction: that attackers wrote badly. Misspellings, broken grammar, and stilted English were the easiest tells. Users were taught to spot them. Filters were tuned to flag them. The model worked.</p>
+
+  <p>That model is now obsolete. Generative AI has made fluent, context-aware, native-language phishing essentially free to produce at scale. The change is not subtle, and it forces a rethink of where phishing controls should live.</p>
+
+  <h2>What actually changed</h2>
+
+  <p>Three things shifted at the same time, and they compound:</p>
+
+  <ul>
+    <li><strong>Linguistic fluency.</strong> Lures are now grammatically clean, locally idiomatic, and tonally appropriate to the target's industry.</li>
+    <li><strong>Personalization at scale.</strong> Public profile data scraped from LinkedIn, GitHub, and conference talks is fed into a generator to produce thousands of unique, specific messages.</li>
+    <li><strong>Multi-channel pretexting.</strong> A single campaign now coordinates email, SMS, voicemail, and Teams or Slack messages — each reinforcing the others.</li>
+  </ul>
+
+  <blockquote>
+    The grammar tell is dead. We have to assume every phish that lands in a user's inbox reads like it was written by a colleague.
+  </blockquote>
+
+  <h2>Where the new tells live</h2>
+
+  <p>Content-based detection still has a role, but the higher-confidence signals have moved to <em>context</em> and <em>behavior</em>. The questions to ask now are different:</p>
+
+  <ol>
+    <li>Has this sender ever communicated with this recipient before?</li>
+    <li>Is the request consistent with the sender's normal pattern (volume, time of day, topics)?</li>
+    <li>Does the linked domain resolve to infrastructure with a recent registration date or a thin reputation?</li>
+    <li>Are multiple recipients in different geographies receiving variations of the same message in the same hour?</li>
+  </ol>
+
+  <p>None of those signals depend on what the message <em>says</em>. They depend on how it behaves relative to the rest of the environment — which is exactly the kind of correlation a SOC with good telemetry can do, and a content filter alone cannot.</p>
+
+  <h2>A practical 90-day plan</h2>
+
+  <p>If you want to put pressure on this threat without a budget cycle, three moves return outsized value:</p>
+
+  <h3>1. Tune your detections away from grammar</h3>
+  <p>Audit your current email security rules. Anything keyed on "broken English," common misspellings of brand names, or phrases like "kindly" — retire or downweight. They produce noise on legitimate non-native-speaker mail and miss the new generation of clean lures entirely.</p>
+
+  <h3>2. Push hard on sender-behavior baselines</h3>
+  <p>Whether you're using Microsoft Defender, Proofpoint, Mimecast, or a SIEM correlation rule, configure or build a "first-time external sender + financial language + link" composite signal. It's one of the highest-precision single rules we deploy.</p>
+
+  <h3>3. Make reporting frictionless</h3>
+  <p>Awareness training is most useful as a <em>reporting</em> driver, not a content-spotting drill. A one-click report button that goes straight to the SOC will outperform any quiz. Measure success by report rate, not click rate.</p>
+
+  <div class="callout">
+    <div class="ic">⚡</div>
+    <div>
+      <strong>Want a phishing readiness review?</strong><br>
+      Our threat research team will run a 60-minute audit of your current email controls and detection rules — free for qualified enterprises. <a href="contact.html">Book a session →</a>
+    </div>
+  </div>
+
+  <h2>What this doesn't change</h2>
+
+  <p>One thing is worth saying plainly: the underlying social engineering tactics haven't really shifted. Urgency, authority, scarcity, and curiosity are still the levers attackers pull. AI just makes the lever-pulling cheaper and more convincing. The defensive instinct — slow the user down, give them a path to verify, reward them for reporting — remains correct. The tooling to support it just has to get better, faster.</p>
+
+  <p>Phishing is going to feel different over the next year. The grammar shortcut is gone. The work that replaces it lives in your telemetry and in your culture, not in your awareness slides.</p>
+</article>
+
+<div class="article-share">
+  <div class="tag-list">
+    <span class="tag-chip">#phishing</span>
+    <span class="tag-chip">#ai-threats</span>
+    <span class="tag-chip">#email-security</span>
+    <span class="tag-chip">#detection</span>
+  </div>
+  <div class="share-buttons">
+    <a href="#" aria-label="Share on LinkedIn">in</a>
+    <a href="#" aria-label="Share on Twitter">𝕏</a>
+    <a href="#" aria-label="Copy link">🔗</a>
+  </div>
+</div>
+
+<section class="related-posts">
+  <div class="container">
+    <h3>Related reading</h3>
+    <div class="blog-grid">
+      <a href="article.html" class="blog-card reveal">
+        <div class="img"><img src="https://images.unsplash.com/photo-1614064641938-3bbee52942c7?auto=format&fit=crop&w=800&q=80" alt=""/></div>
+        <div class="body"><div class="meta">SOC Ops · 4 min</div><h3>How we cut alert fatigue 60% with behavioral correlation</h3><span class="read-more">Read article →</span></div>
+      </a>
+      <a href="article.html" class="blog-card reveal">
+        <div class="img"><img src="https://images.unsplash.com/photo-1510511459019-5dda7724fd87?auto=format&fit=crop&w=800&q=80" alt=""/></div>
+        <div class="body"><div class="meta">Threat Hunting · 8 min</div><h3>Hunting living-off-the-land binaries with UEBA</h3><span class="read-more">Read article →</span></div>
+      </a>
+      <a href="article.html" class="blog-card reveal">
+        <div class="img"><img src="https://images.unsplash.com/photo-1614064548237-096d5552c61c?auto=format&fit=crop&w=800&q=80" alt=""/></div>
+        <div class="body"><div class="meta">Threat Intel · 4 min</div><h3>Three threat actors to watch in 2026</h3><span class="read-more">Read article →</span></div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <div class="cta-band reveal">
+      <h2>Get our weekly threat brief</h2>
+      <p>Curated by our research team. Real signal, no noise.</p>
+      <form data-demo style="display:flex; gap:12px; max-width:480px; margin:0 auto; flex-wrap:wrap; justify-content:center;">
+        <input type="email" placeholder="you@company.com" required style="flex:1; min-width:240px; padding:14px 18px; background:var(--bg-2); border:1px solid var(--border); border-radius:10px; color:var(--text); font-size:14px;">
+        <button type="submit" class="btn btn-primary">Subscribe →</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<div id="site-footer"></div>
+<script src="assets/js/partials.js"></script>
+<script src="assets/js/main.js"></script>
+</body>
+</html>
