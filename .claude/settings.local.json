@@ -4,7 +4,8 @@
       "Bash(command -v gh)",
       "Bash(gh --version)",
       "PowerShell(git checkout -b claude/redesign-brand-polish)",
-      "PowerShell(git add -A)"
+      "PowerShell(git add -A)",
+      "WebFetch(domain:g-securenewredesign.vercel.app)"
     ]
   }
 }
