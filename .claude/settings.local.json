@@ -6,7 +6,9 @@
       "PowerShell(git checkout -b claude/redesign-brand-polish)",
       "PowerShell(git add -A)",
       "WebFetch(domain:g-securenewredesign.vercel.app)",
-      "WebFetch(domain:id-preview--4278fcd6-ca02-4e67-9ae2-11c589583f47.lovable.app)"
+      "WebFetch(domain:id-preview--4278fcd6-ca02-4e67-9ae2-11c589583f47.lovable.app)",
+      "PowerShell(git remote add gsecure https://github.com/TGCAmisha/gsecure01.git)",
+      "PowerShell(git push gsecure HEAD:main)"
     ]
   }
 }

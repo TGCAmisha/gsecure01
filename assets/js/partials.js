@@ -7,11 +7,11 @@ const HEADER_HTML = `
         <svg viewBox="0 0 48 52" xmlns="http://www.w3.org/2000/svg" aria-label="G'Secure Labs shield">
           <path d="M24 2 L44 9 V26 Q44 41 24 50 Q4 41 4 26 V9 Z"
                 fill="none" stroke="#ffffff" stroke-width="2.2" stroke-linejoin="round"/>
-          <path d="M24 2 L44 9 V26 Q44 41 24 50 V2 Z" fill="#ffa61a"/>
+          <path d="M24 2 L44 9 V26 Q44 41 24 50 V2 Z" fill="#00e5ff"/>
           <path d="M24 7 L40 12 V25 Q40 38 24 45 Q8 38 8 25 V12 Z"
-                fill="none" stroke="#ffa61a" stroke-width="1.2" stroke-linejoin="round" opacity="0.85"/>
-          <circle cx="24" cy="22" r="4" fill="#004a80"/>
-          <rect x="22" y="22" width="4" height="10" rx="1.5" fill="#004a80"/>
+                fill="none" stroke="#00e5ff" stroke-width="1.2" stroke-linejoin="round" opacity="0.85"/>
+          <circle cx="24" cy="22" r="4" fill="#4d7cff"/>
+          <rect x="22" y="22" width="4" height="10" rx="1.5" fill="#4d7cff"/>
         </svg>
       </div>
       <div><span class="logo-text">G'Secure</span><small>LABS</small></div>
@@ -60,11 +60,11 @@ const FOOTER_HTML = `
         <svg viewBox="0 0 48 52" xmlns="http://www.w3.org/2000/svg" aria-label="G'Secure Labs shield">
           <path d="M24 2 L44 9 V26 Q44 41 24 50 Q4 41 4 26 V9 Z"
                 fill="none" stroke="#ffffff" stroke-width="2.2" stroke-linejoin="round"/>
-          <path d="M24 2 L44 9 V26 Q44 41 24 50 V2 Z" fill="#ffa61a"/>
+          <path d="M24 2 L44 9 V26 Q44 41 24 50 V2 Z" fill="#00e5ff"/>
           <path d="M24 7 L40 12 V25 Q40 38 24 45 Q8 38 8 25 V12 Z"
-                fill="none" stroke="#ffa61a" stroke-width="1.2" stroke-linejoin="round" opacity="0.85"/>
-          <circle cx="24" cy="22" r="4" fill="#004a80"/>
-          <rect x="22" y="22" width="4" height="10" rx="1.5" fill="#004a80"/>
+                fill="none" stroke="#00e5ff" stroke-width="1.2" stroke-linejoin="round" opacity="0.85"/>
+          <circle cx="24" cy="22" r="4" fill="#4d7cff"/>
+          <rect x="22" y="22" width="4" height="10" rx="1.5" fill="#4d7cff"/>
         </svg>
       </div>
           <div><span class="logo-text">G'Secure</span><small>LABS</small></div>

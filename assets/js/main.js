@@ -219,7 +219,7 @@ document.addEventListener('DOMContentLoaded', () => {
           const max = 140 * devicePixelRatio;
           if (d < max) {
             const alpha = 1 - d / max;
-            ctx.strokeStyle = `rgba(255,166,26,${alpha * 0.18})`;
+            ctx.strokeStyle = `rgba(0,229,255,${alpha * 0.18})`;
             ctx.lineWidth = devicePixelRatio * 0.6;
             ctx.beginPath();
             ctx.moveTo(a.x, a.y); ctx.lineTo(b.x, b.y); ctx.stroke();
