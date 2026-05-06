@@ -54,18 +54,25 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // Typed text effect for hero
+  // Respect reduced-motion preference
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  // Typed text effect for hero (skipped when reduced motion is on)
   const typed = document.querySelector('[data-typed]');
   if (typed) {
     const words = JSON.parse(typed.dataset.typed);
-    let i = 0, j = 0, deleting = false;
-    const tick = () => {
-      const w = words[i];
-      typed.textContent = w.slice(0, j);
-      if (!deleting && j < w.length) { j++; setTimeout(tick, 80); }
-      else if (deleting && j > 0) { j--; setTimeout(tick, 40); }
-      else { deleting = !deleting; if (!deleting) i = (i + 1) % words.length; setTimeout(tick, 1200); }
-    };
-    tick();
+    if (reduceMotion) {
+      typed.textContent = words[0];
+    } else {
+      let i = 0, j = 0, deleting = false;
+      const tick = () => {
+        const w = words[i];
+        typed.textContent = w.slice(0, j);
+        if (!deleting && j < w.length) { j++; setTimeout(tick, 80); }
+        else if (deleting && j > 0) { j--; setTimeout(tick, 40); }
+        else { deleting = !deleting; if (!deleting) i = (i + 1) % words.length; setTimeout(tick, 1200); }
+      };
+      tick();
+    }
   }
 });

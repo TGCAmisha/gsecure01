@@ -433,6 +433,25 @@ section { padding: 100px 0; position: relative; }
 .logo-mark::after { animation: spin 4s linear infinite; }
 @keyframes spin { to { transform: rotate(360deg); } }
 
+/* Accessibility — Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  .reveal { opacity: 1 !important; transform: none !important; }
+  .orb, .ring, .shield-svg, .float-card, .logo-mark::after,
+  .stats-band::before, .cta-band::before, .hero-eyebrow .pulse {
+    animation: none !important;
+  }
+  .service-card:hover, .story-card:hover, .blog-card:hover,
+  .cap-item:hover, .diff-item:hover, .btn:hover {
+    transform: none !important;
+  }
+}
+
 /* Mobile */
 @media (max-width: 968px) {
   .nav-menu, .nav-actions .btn-ghost { display: none; }
