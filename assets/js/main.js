@@ -57,6 +57,46 @@ document.addEventListener('DOMContentLoaded', () => {
   // Respect reduced-motion preference
   const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
+  // Character-by-character hero word animation
+  document.querySelectorAll('[data-anim-chars]').forEach(el => {
+    const text = el.textContent;
+    const baseDelay = parseInt(el.dataset.animDelay || '0', 10);
+    el.textContent = '';
+    [...text].forEach((c, i) => {
+      const span = document.createElement('span');
+      span.className = c === ' ' ? 'ch space' : 'ch';
+      span.textContent = c === ' ' ? ' ' : c;
+      if (reduceMotion) {
+        span.style.animation = 'none';
+        span.style.opacity = '1';
+        span.style.transform = 'none';
+      } else {
+        span.style.animationDelay = (baseDelay + i * 45) + 'ms';
+      }
+      el.appendChild(span);
+    });
+  });
+
+  // Word-by-word fade for paragraphs
+  document.querySelectorAll('[data-anim-words]').forEach(el => {
+    const text = el.textContent;
+    const baseDelay = parseInt(el.dataset.animDelay || '0', 10);
+    el.textContent = '';
+    text.split(/(\s+)/).forEach((w, i) => {
+      const span = document.createElement('span');
+      if (/^\s+$/.test(w)) { span.className = 'w space'; span.textContent = ' '; }
+      else { span.className = 'w'; span.textContent = w; }
+      if (reduceMotion) {
+        span.style.animation = 'none';
+        span.style.opacity = '1';
+        span.style.transform = 'none';
+      } else {
+        span.style.animationDelay = (baseDelay + i * 35) + 'ms';
+      }
+      el.appendChild(span);
+    });
+  });
+
   // Typed text effect for hero (skipped when reduced motion is on)
   const typed = document.querySelector('[data-typed]');
   if (typed) {
