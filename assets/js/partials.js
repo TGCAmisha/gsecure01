@@ -3,7 +3,20 @@ const HEADER_HTML = `
 <header class="header">
   <div class="container nav">
     <a href="index.html" class="logo">
-      <div class="logo-mark">G</div>
+      <div class="logo-mark">
+        <svg viewBox="0 0 42 46" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="logoGrad" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0%" stop-color="#1a3a6e"/>
+              <stop offset="55%" stop-color="#0a1f44"/>
+              <stop offset="100%" stop-color="#ff4d4d"/>
+            </linearGradient>
+          </defs>
+          <path class="shield-bg" d="M21 1 L40 8 V24 Q40 38 21 45 Q2 38 2 24 V8 Z"/>
+          <path d="M21 1 L40 8 V24 Q40 38 21 45 Q2 38 2 24 V8 Z" fill="none" stroke="rgba(0,229,255,0.5)" stroke-width="0.8"/>
+          <text class="shield-letter" x="21" y="28" text-anchor="middle">G</text>
+        </svg>
+      </div>
       <div><span class="logo-text">G'Secure</span><small>LABS</small></div>
     </a>
     <ul class="nav-menu">
@@ -36,7 +49,20 @@ const FOOTER_HTML = `
     <div class="footer-grid">
       <div class="footer-brand">
         <a href="index.html" class="logo">
-          <div class="logo-mark">G</div>
+          <div class="logo-mark">
+        <svg viewBox="0 0 42 46" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="logoGrad" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0%" stop-color="#1a3a6e"/>
+              <stop offset="55%" stop-color="#0a1f44"/>
+              <stop offset="100%" stop-color="#ff4d4d"/>
+            </linearGradient>
+          </defs>
+          <path class="shield-bg" d="M21 1 L40 8 V24 Q40 38 21 45 Q2 38 2 24 V8 Z"/>
+          <path d="M21 1 L40 8 V24 Q40 38 21 45 Q2 38 2 24 V8 Z" fill="none" stroke="rgba(0,229,255,0.5)" stroke-width="0.8"/>
+          <text class="shield-letter" x="21" y="28" text-anchor="middle">G</text>
+        </svg>
+      </div>
           <div><span class="logo-text">G'Secure</span><small>LABS</small></div>
         </a>
         <p>Redefining your cyber security outcomes — protecting your business, your brand, and everything in between.</p>
