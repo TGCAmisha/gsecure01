@@ -4,14 +4,17 @@ const HEADER_HTML = `
   <div class="container nav">
     <a href="index.html" class="logo">
       <div class="logo-mark">
-        <svg viewBox="0 0 48 52" xmlns="http://www.w3.org/2000/svg" aria-label="G'Secure Labs shield">
-          <path d="M24 2 L44 9 V26 Q44 41 24 50 Q4 41 4 26 V9 Z"
-                fill="none" stroke="#ffffff" stroke-width="2.2" stroke-linejoin="round"/>
-          <path d="M24 2 L44 9 V26 Q44 41 24 50 V2 Z" fill="#ffa61a"/>
-          <path d="M24 7 L40 12 V25 Q40 38 24 45 Q8 38 8 25 V12 Z"
-                fill="none" stroke="#ffa61a" stroke-width="1.2" stroke-linejoin="round" opacity="0.85"/>
-          <circle cx="24" cy="22" r="4" fill="#004a80"/>
-          <rect x="22" y="22" width="4" height="10" rx="1.5" fill="#004a80"/>
+        <svg viewBox="0 0 42 46" xmlns="http://www.w3.org/2000/svg" aria-label="G'Secure Labs">
+          <defs>
+            <linearGradient id="logoGrad" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0%" stop-color="#00e5ff"/>
+              <stop offset="55%" stop-color="#4d7cff"/>
+              <stop offset="100%" stop-color="#ff4d4d"/>
+            </linearGradient>
+          </defs>
+          <path class="shield-bg" d="M21 1 L40 8 V24 Q40 38 21 45 Q2 38 2 24 V8 Z" fill="url(#logoGrad)"/>
+          <path d="M21 1 L40 8 V24 Q40 38 21 45 Q2 38 2 24 V8 Z" fill="none" stroke="rgba(255,255,255,0.4)" stroke-width="0.8"/>
+          <text x="21" y="28" text-anchor="middle" fill="#fff" font-weight="900" font-size="20" font-family="Inter, sans-serif">G</text>
         </svg>
       </div>
       <div><span class="logo-text">G'Secure</span><small>LABS</small></div>
@@ -47,14 +50,17 @@ const FOOTER_HTML = `
       <div class="footer-brand">
         <a href="index.html" class="logo">
           <div class="logo-mark">
-        <svg viewBox="0 0 48 52" xmlns="http://www.w3.org/2000/svg" aria-label="G'Secure Labs shield">
-          <path d="M24 2 L44 9 V26 Q44 41 24 50 Q4 41 4 26 V9 Z"
-                fill="none" stroke="#ffffff" stroke-width="2.2" stroke-linejoin="round"/>
-          <path d="M24 2 L44 9 V26 Q44 41 24 50 V2 Z" fill="#ffa61a"/>
-          <path d="M24 7 L40 12 V25 Q40 38 24 45 Q8 38 8 25 V12 Z"
-                fill="none" stroke="#ffa61a" stroke-width="1.2" stroke-linejoin="round" opacity="0.85"/>
-          <circle cx="24" cy="22" r="4" fill="#004a80"/>
-          <rect x="22" y="22" width="4" height="10" rx="1.5" fill="#004a80"/>
+        <svg viewBox="0 0 42 46" xmlns="http://www.w3.org/2000/svg" aria-label="G'Secure Labs">
+          <defs>
+            <linearGradient id="logoGrad" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0%" stop-color="#00e5ff"/>
+              <stop offset="55%" stop-color="#4d7cff"/>
+              <stop offset="100%" stop-color="#ff4d4d"/>
+            </linearGradient>
+          </defs>
+          <path class="shield-bg" d="M21 1 L40 8 V24 Q40 38 21 45 Q2 38 2 24 V8 Z" fill="url(#logoGrad)"/>
+          <path d="M21 1 L40 8 V24 Q40 38 21 45 Q2 38 2 24 V8 Z" fill="none" stroke="rgba(255,255,255,0.4)" stroke-width="0.8"/>
+          <text x="21" y="28" text-anchor="middle" fill="#fff" font-weight="900" font-size="20" font-family="Inter, sans-serif">G</text>
         </svg>
       </div>
           <div><span class="logo-text">G'Secure</span><small>LABS</small></div>

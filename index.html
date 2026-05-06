@@ -59,38 +59,43 @@
       <div class="shield shield-animated">
         <svg class="shield-svg" viewBox="0 0 200 240" xmlns="http://www.w3.org/2000/svg">
           <defs>
+            <linearGradient id="g1" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0%" stop-color="#00e5ff"/>
+              <stop offset="50%" stop-color="#4d7cff"/>
+              <stop offset="100%" stop-color="#ff4d4d"/>
+            </linearGradient>
             <radialGradient id="g1-glow" cx="50%" cy="40%" r="55%">
-              <stop offset="0%" stop-color="rgba(255,166,26,0.45)"/>
-              <stop offset="100%" stop-color="rgba(255,166,26,0)"/>
+              <stop offset="0%" stop-color="rgba(0,229,255,0.4)"/>
+              <stop offset="100%" stop-color="rgba(0,229,255,0)"/>
             </radialGradient>
             <linearGradient id="g1-sheen" x1="0" y1="0" x2="1" y2="1">
               <stop offset="0%" stop-color="rgba(255,255,255,0)"/>
-              <stop offset="50%" stop-color="rgba(255,255,255,0.5)"/>
+              <stop offset="50%" stop-color="rgba(255,255,255,0.55)"/>
               <stop offset="100%" stop-color="rgba(255,255,255,0)"/>
             </linearGradient>
             <clipPath id="g1-clip">
               <path d="M100 10 L180 40 V120 Q180 190 100 230 Q20 190 20 120 V40 Z"/>
             </clipPath>
           </defs>
-          <!-- Outer shield outline (white) -->
+          <!-- Outer gradient-filled shield (subtle) -->
+          <path d="M100 10 L180 40 V120 Q180 190 100 230 Q20 190 20 120 V40 Z" fill="url(#g1)" opacity="0.18"/>
+          <!-- Outer outline draws in -->
           <path class="sh-outline" d="M100 10 L180 40 V120 Q180 190 100 230 Q20 190 20 120 V40 Z"
-                fill="none" stroke="#ffffff" stroke-width="4" stroke-linejoin="round"/>
-          <!-- Right half filled in brand orange -->
-          <path d="M100 10 L180 40 V120 Q180 190 100 230 V10 Z" fill="#ffa61a"/>
+                fill="none" stroke="url(#g1)" stroke-width="3" stroke-linejoin="round"/>
           <!-- Soft glow over the whole shield -->
           <path d="M100 10 L180 40 V120 Q180 190 100 230 Q20 190 20 120 V40 Z" fill="url(#g1-glow)" class="sh-pulse-glow"/>
           <!-- Sheen sweeping across (clipped to shield) -->
           <g clip-path="url(#g1-clip)">
             <rect class="sh-sheen" x="-100" y="0" width="80" height="240" fill="url(#g1-sheen)"/>
           </g>
-          <!-- Inner shield ring (orange thin, dashed, animated) -->
+          <!-- Inner dashed ring -->
           <path class="sh-dash" d="M100 28 L162 55 V120 Q162 178 100 210 Q38 178 38 120 V55 Z"
-                fill="none" stroke="#ffa61a" stroke-width="1.5" stroke-linejoin="round" opacity="0.7" stroke-dasharray="4 6"/>
-          <!-- Keyhole circle + tail in navy -->
-          <circle class="sh-keyhole" cx="100" cy="105" r="20" fill="#004a80"/>
-          <rect x="90" y="105" width="20" height="50" rx="6" fill="#004a80"/>
-          <!-- Tiny radar dot pulse on the keyhole center -->
-          <circle cx="100" cy="105" r="4" fill="#ffa61a" class="sh-dot"/>
+                fill="none" stroke="url(#g1)" stroke-width="1.5" stroke-linejoin="round" opacity="0.6" stroke-dasharray="4 6"/>
+          <!-- Centered checkmark (the original mark) -->
+          <path d="M70 115 L92 137 L135 92" fill="none" stroke="#fff" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+          <path class="sh-keyhole" d="M70 115 L92 137 L135 92" fill="none" stroke="url(#g1)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+          <!-- Center radar ping -->
+          <circle cx="100" cy="115" r="3" fill="#00e5ff" class="sh-dot"/>
         </svg>
         <!-- Orbital satellites (3 dots circling) -->
         <div class="orbit orbit-1"><span class="sat"></span></div>
