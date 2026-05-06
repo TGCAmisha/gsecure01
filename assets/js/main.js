@@ -57,6 +57,22 @@ document.addEventListener('DOMContentLoaded', () => {
   // Respect reduced-motion preference
   const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
+  // Hero code-rain particles
+  const rain = document.getElementById('heroRain');
+  if (rain && !reduceMotion) {
+    const glyphs = '01∆◊※☓◌◎◍▲▼◇⬡⬢';
+    const count = 28;
+    for (let i = 0; i < count; i++) {
+      const s = document.createElement('span');
+      s.textContent = glyphs[Math.floor(Math.random() * glyphs.length)];
+      s.style.left = (Math.random() * 100) + '%';
+      s.style.animationDuration = (6 + Math.random() * 8) + 's';
+      s.style.animationDelay = (Math.random() * 8) + 's';
+      s.style.fontSize = (10 + Math.random() * 8) + 'px';
+      rain.appendChild(s);
+    }
+  }
+
   // Character-by-character hero word animation
   document.querySelectorAll('[data-anim-chars]').forEach(el => {
     const text = el.textContent;
