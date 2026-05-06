@@ -17,14 +17,24 @@ const HEADER_HTML = `
       <div><span class="logo-text">G'Secure</span><small>LABS</small></div>
     </a>
     <ul class="nav-menu">
-      <li class="dropdown">
-        <a href="services.html">Services ▾</a>
-        <div class="dropdown-menu">
-          <a href="mdr.html">MDR Services</a>
-          <a href="soc.html">SOC Services</a>
-          <a href="grc.html">GRC Services</a>
-          <a href="vapt.html">VAPT</a>
-          <a href="services.html">All Services</a>
+      <li class="dropdown mega">
+        <a href="services.html">Services <span class="caret">▾</span></a>
+        <div class="dropdown-menu mega-menu">
+          <div class="mega-col">
+            <div class="mega-eyebrow">Detect &amp; Respond</div>
+            <a href="mdr.html"><span class="mi">🛰️</span><span><strong>MDR</strong><em>24/7 Managed Detection &amp; Response</em></span></a>
+            <a href="soc.html"><span class="mi">🖥️</span><span><strong>SOC</strong><em>Global Security Operations Center</em></span></a>
+          </div>
+          <div class="mega-col">
+            <div class="mega-eyebrow">Govern &amp; Test</div>
+            <a href="grc.html"><span class="mi">📋</span><span><strong>GRC</strong><em>Governance, Risk &amp; Compliance</em></span></a>
+            <a href="vapt.html"><span class="mi">🎯</span><span><strong>VAPT</strong><em>Vulnerability &amp; Pen Testing</em></span></a>
+          </div>
+          <div class="mega-col mega-cta">
+            <div class="mega-eyebrow">Explore</div>
+            <a href="services.html" class="mega-all">All Services →</a>
+            <a href="contact.html" class="mega-talk">Talk to an Expert →</a>
+          </div>
         </div>
       </li>
       <li><a href="insights.html">Resources</a></li>
