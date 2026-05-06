@@ -56,26 +56,24 @@
       <div class="shield">
         <svg class="shield-svg" viewBox="0 0 200 240" xmlns="http://www.w3.org/2000/svg">
           <defs>
-            <linearGradient id="g1" x1="0" y1="0" x2="1" y2="1">
-              <stop offset="0%" stop-color="#1a3a6e"/>
-              <stop offset="55%" stop-color="#0a1f44"/>
-              <stop offset="100%" stop-color="#ff4d4d"/>
-            </linearGradient>
-            <linearGradient id="g1-trim" x1="0" y1="0" x2="1" y2="1">
-              <stop offset="0%" stop-color="#00e5ff"/>
-              <stop offset="100%" stop-color="#ff4d4d"/>
-            </linearGradient>
-            <radialGradient id="g1-glow" cx="50%" cy="40%" r="50%">
-              <stop offset="0%" stop-color="rgba(0,229,255,0.35)"/>
-              <stop offset="100%" stop-color="rgba(0,229,255,0)"/>
+            <radialGradient id="g1-glow" cx="50%" cy="40%" r="55%">
+              <stop offset="0%" stop-color="rgba(255,166,26,0.35)"/>
+              <stop offset="100%" stop-color="rgba(255,166,26,0)"/>
             </radialGradient>
           </defs>
-          <path d="M100 10 L180 40 V120 Q180 190 100 230 Q20 190 20 120 V40 Z" fill="url(#g1)" opacity="0.85"/>
+          <!-- Outer shield outline (white) -->
+          <path d="M100 10 L180 40 V120 Q180 190 100 230 Q20 190 20 120 V40 Z"
+                fill="none" stroke="#ffffff" stroke-width="4" stroke-linejoin="round"/>
+          <!-- Right half filled in brand orange -->
+          <path d="M100 10 L180 40 V120 Q180 190 100 230 V10 Z" fill="#ffa61a"/>
+          <!-- Soft glow over the whole shield -->
           <path d="M100 10 L180 40 V120 Q180 190 100 230 Q20 190 20 120 V40 Z" fill="url(#g1-glow)"/>
-          <path d="M100 10 L180 40 V120 Q180 190 100 230 Q20 190 20 120 V40 Z" fill="none" stroke="url(#g1-trim)" stroke-width="1.5"/>
-          <path d="M100 30 L160 55 V120 Q160 175 100 205 Q40 175 40 120 V55 Z" fill="none" stroke="rgba(0,229,255,0.4)" stroke-width="1" stroke-dasharray="2 4"/>
-          <path d="M70 115 L92 137 L135 92" fill="none" stroke="#fff" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
-          <path d="M70 115 L92 137 L135 92" fill="none" stroke="url(#g1-trim)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+          <!-- Inner shield ring (orange thin) -->
+          <path d="M100 28 L162 55 V120 Q162 178 100 210 Q38 178 38 120 V55 Z"
+                fill="none" stroke="#ffa61a" stroke-width="2" stroke-linejoin="round" opacity="0.85"/>
+          <!-- Keyhole circle + tail in navy -->
+          <circle cx="100" cy="105" r="20" fill="#004a80"/>
+          <rect x="90" y="105" width="20" height="50" rx="6" fill="#004a80"/>
         </svg>
       </div>
       <div class="float-card fc-1">
