@@ -42,6 +42,16 @@ export function AnimatedCounter({
   );
 }
 
+// Parses values like "27+", "80%", "14", "30+" into target number + suffix.
+export function StatValue({ value, duration = 1.6 }: { value: string; duration?: number }) {
+  const match = value.match(/^([0-9.,]+)(.*)$/);
+  if (!match) return <span className="font-mono">{value}</span>;
+  const num = parseInt(match[1].replace(/[,]/g, ""), 10);
+  const suffix = match[2] ?? "";
+  if (isNaN(num)) return <span className="font-mono">{value}</span>;
+  return <AnimatedCounter to={num} suffix={suffix} duration={duration} />;
+}
+
 export function CountdownTrio() {
   return (
     <div className="grid grid-cols-3 gap-3 sm:gap-4">

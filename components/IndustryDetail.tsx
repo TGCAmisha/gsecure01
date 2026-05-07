@@ -8,6 +8,8 @@ import { Breadcrumbs } from "./Breadcrumbs";
 import { CtaBlock } from "./CtaBlock";
 import { ParticleNetwork } from "./ParticleNetwork";
 import { IndustryScene } from "./IndustryScene";
+import { BrandImage } from "./BrandImage";
+import { pic } from "@/lib/images";
 
 export function IndustryDetail({ industry }: { industry: Industry }) {
   const Icon = getIcon(industry.icon);
@@ -48,7 +50,14 @@ export function IndustryDetail({ industry }: { industry: Industry }) {
             </Reveal>
 
             <Reveal delay={0.15}>
-              <div className="space-y-5">
+              <div className="space-y-4">
+                <BrandImage
+                  src={pic(`gsecure-industry-${industry.slug}-hero`, 1200, 800)}
+                  alt={`${industry.name} sector`}
+                  className="aspect-[3/2]"
+                  rounded="rounded-2xl"
+                  intensity="medium"
+                />
                 <IndustryScene slug={industry.slug} />
                 <div className="glass-strong rounded-xl p-6 relative overflow-hidden">
                   <div className="absolute inset-0 bg-radial-glow opacity-40" />

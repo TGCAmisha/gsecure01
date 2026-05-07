@@ -2,13 +2,16 @@ import Link from "next/link";
 import { ArrowRight, ArrowUpRight, Shield, CheckCircle2, Globe2, Users, BarChart3, Sparkles } from "lucide-react";
 import { HeroGlobe } from "@/components/HeroGlobe";
 import { ParticleNetwork } from "@/components/ParticleNetwork";
-import { CountdownTrio, AnimatedCounter } from "@/components/AnimatedCounter";
+import { CountdownTrio, StatValue } from "@/components/AnimatedCounter";
 import { LogoMarquee } from "@/components/LogoMarquee";
+import { ClientLogos } from "@/components/ClientLogos";
 import { Reveal, SectionHeading } from "@/components/Section";
 import { ServiceCard } from "@/components/ServiceCard";
 import { CtaBlock } from "@/components/CtaBlock";
 import { services, industries, caseStudies, insights, stats } from "@/lib/content";
 import { getIcon } from "@/lib/icons";
+import { BrandImage } from "@/components/BrandImage";
+import { caseImage, insightImage, heroImages } from "@/lib/images";
 
 export default function Home() {
   return (
@@ -54,20 +57,8 @@ export default function Home() {
         </div>
       </section>
 
-      {/* CLIENT LOGO BAR */}
-      <section className="border-y border-white/5 py-2">
-        <div className="container-x">
-          <div className="flex items-center justify-between gap-4 mb-3 px-2">
-            <span className="text-[11px] uppercase tracking-[0.18em] font-mono text-inkSoft/50">
-              Trusted by Fortune 500 enterprises
-            </span>
-            <Link href="/case-studies" className="text-xs text-signal/85 hover:text-signal flex items-center gap-1">
-              See proof <ArrowUpRight size={12} />
-            </Link>
-          </div>
-          <LogoMarquee />
-        </div>
-      </section>
+      {/* CLIENT LOGOS */}
+      <ClientLogos />
 
       {/* STATS */}
       <section className="section">
@@ -84,7 +75,7 @@ export default function Home() {
               <Reveal key={s.label} delay={i * 0.05}>
                 <div className="glass rounded-lg p-5 h-full">
                   <div className="font-mono text-3xl md:text-[34px] font-semibold text-gradient-signal tracking-tight">
-                    {s.value}
+                    <StatValue value={s.value} />
                   </div>
                   <div className="text-xs text-inkSoft/60 mt-1.5 leading-snug">{s.label}</div>
                 </div>
@@ -237,11 +228,16 @@ export default function Home() {
                   href={`/case-studies/${cs.slug}`}
                   className="group glass card-hover rounded-xl overflow-hidden block h-full"
                 >
-                  <div className="relative aspect-[16/9] bg-gradient-to-br from-navy-mid via-navy to-navy-deep border-b border-white/5 overflow-hidden">
-                    <div className="absolute inset-0 bg-grid opacity-30" />
-                    <div className="absolute inset-0 grid place-items-center">
+                  <div className="relative">
+                    <BrandImage
+                      src={caseImage(cs.slug)}
+                      alt={cs.title}
+                      className="aspect-[16/9]"
+                      rounded="rounded-none"
+                    />
+                    <div className="absolute inset-0 grid place-items-center pointer-events-none">
                       <div className="text-center">
-                        <div className="text-[11px] uppercase tracking-[0.18em] text-signal/85 font-mono mb-2">
+                        <div className="text-[11px] uppercase tracking-[0.18em] text-signal font-mono mb-2">
                           {cs.industry}
                         </div>
                         <div className="text-display-sm font-semibold text-gradient-signal font-mono">
@@ -288,10 +284,14 @@ export default function Home() {
             {insights.slice(0, 3).map((it, i) => (
               <Reveal key={it.slug} delay={i * 0.08}>
                 <Link href={`/insights/${it.slug}`} className="group block h-full">
-                  <div className="aspect-[16/10] bg-navy rounded-lg overflow-hidden mb-4 relative">
-                    <div className="absolute inset-0 bg-grid opacity-30" />
-                    <div className="absolute inset-0 bg-radial-glow" />
-                    <div className="absolute bottom-4 left-4 text-[11px] font-mono uppercase tracking-wider text-signal/90">
+                  <div className="relative mb-4">
+                    <BrandImage
+                      src={insightImage(it.slug)}
+                      alt={it.title}
+                      className="aspect-[16/10]"
+                      rounded="rounded-lg"
+                    />
+                    <div className="absolute bottom-4 left-4 text-[11px] font-mono uppercase tracking-wider text-signal">
                       {it.category}
                     </div>
                   </div>

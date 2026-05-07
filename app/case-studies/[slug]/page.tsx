@@ -6,6 +6,8 @@ import { Reveal, SectionHeading } from "@/components/Section";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { CtaBlock } from "@/components/CtaBlock";
 import { ParticleNetwork } from "@/components/ParticleNetwork";
+import { BrandImage } from "@/components/BrandImage";
+import { caseImage } from "@/lib/images";
 
 export function generateStaticParams() {
   return caseStudies.map((cs) => ({ slug: cs.slug }));
@@ -39,6 +41,16 @@ export default function CaseStudyPage({ params }: { params: { slug: string } }) 
                 {cs.title}
               </h1>
               <p className="mt-6 text-lg md:text-xl text-inkSoft/70 leading-relaxed max-w-3xl">{cs.summary}</p>
+            </div>
+          </Reveal>
+          <Reveal delay={0.15}>
+            <div className="mt-12">
+              <BrandImage
+                src={caseImage(cs.slug)}
+                alt={cs.title}
+                className="aspect-[21/9] w-full"
+                rounded="rounded-2xl"
+              />
             </div>
           </Reveal>
         </div>

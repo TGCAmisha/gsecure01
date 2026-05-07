@@ -5,6 +5,8 @@ import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { CtaBlock } from "@/components/CtaBlock";
 import { ParticleNetwork } from "@/components/ParticleNetwork";
 import { caseStudies } from "@/lib/content";
+import { BrandImage } from "@/components/BrandImage";
+import { caseImage } from "@/lib/images";
 
 export const metadata = { title: "Case Studies — G'Secure Labs" };
 
@@ -37,12 +39,21 @@ export default function CaseStudiesPage() {
             {caseStudies.map((cs, i) => (
               <Reveal key={cs.slug} delay={i * 0.06}>
                 <Link href={`/case-studies/${cs.slug}`} className="glass card-hover rounded-xl block h-full overflow-hidden group">
-                  <div className="aspect-[16/9] relative bg-gradient-to-br from-navy-mid via-navy to-navy-deep border-b border-white/5 overflow-hidden">
-                    <div className="absolute inset-0 bg-grid opacity-30" />
-                    <div className="absolute inset-0 grid place-items-center">
+                  <div className="relative">
+                    <BrandImage
+                      src={caseImage(cs.slug)}
+                      alt={cs.title}
+                      className="aspect-[16/9]"
+                      rounded="rounded-none"
+                    />
+                    <div className="absolute inset-0 grid place-items-center pointer-events-none">
                       <div className="text-center">
-                        <div className="text-[11px] uppercase tracking-[0.18em] text-signal/85 font-mono mb-2">{cs.industry}</div>
-                        <div className="text-display-sm font-semibold text-gradient-signal font-mono">{cs.service}</div>
+                        <div className="text-[11px] uppercase tracking-[0.18em] text-signal font-mono mb-2 drop-shadow">
+                          {cs.industry}
+                        </div>
+                        <div className="text-display-sm font-semibold text-gradient-signal font-mono">
+                          {cs.service}
+                        </div>
                       </div>
                     </div>
                   </div>

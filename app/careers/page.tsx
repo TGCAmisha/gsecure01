@@ -4,6 +4,8 @@ import { Reveal, SectionHeading } from "@/components/Section";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { CtaBlock } from "@/components/CtaBlock";
 import { ParticleNetwork } from "@/components/ParticleNetwork";
+import { BrandImage } from "@/components/BrandImage";
+import { heroImages } from "@/lib/images";
 
 export const metadata = { title: "Careers — G'Secure Labs" };
 
@@ -41,6 +43,16 @@ export default function CareersPage() {
               <p className="mt-5 text-lg md:text-xl text-inkSoft/70 leading-relaxed">
                 Join 300+ practitioners across 14 offices defending the world&apos;s most demanding enterprises. Real customer impact, deep technical work, no corporate theatre.
               </p>
+            </div>
+          </Reveal>
+          <Reveal delay={0.15}>
+            <div className="mt-12">
+              <BrandImage
+                src={heroImages.careers}
+                alt="G'Secure Labs careers"
+                className="aspect-[21/9] w-full"
+                rounded="rounded-2xl"
+              />
             </div>
           </Reveal>
         </div>

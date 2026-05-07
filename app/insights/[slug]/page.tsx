@@ -5,6 +5,8 @@ import { insights } from "@/lib/content";
 import { Reveal, SectionHeading } from "@/components/Section";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { CtaBlock } from "@/components/CtaBlock";
+import { BrandImage } from "@/components/BrandImage";
+import { insightImage } from "@/lib/images";
 
 export function generateStaticParams() {
   return insights.map((i) => ({ slug: i.slug }));
@@ -57,10 +59,14 @@ export default function InsightArticlePage({ params }: { params: { slug: string 
 
         <section className="bg-cream text-navy editorial pb-20">
           <div className="container-x max-w-3xl">
-            <div className="aspect-[16/9] bg-navy rounded-xl overflow-hidden relative mb-12">
-              <div className="absolute inset-0 bg-grid opacity-30" />
-              <div className="absolute inset-0 bg-radial-glow" />
-              <div className="absolute bottom-5 left-5 text-[11px] font-mono uppercase tracking-wider text-signal/90">
+            <div className="relative mb-12">
+              <BrandImage
+                src={insightImage(article.slug)}
+                alt={article.title}
+                className="aspect-[16/9]"
+                rounded="rounded-xl"
+              />
+              <div className="absolute bottom-5 left-5 text-[11px] font-mono uppercase tracking-wider text-signal">
                 {article.category}
               </div>
             </div>
@@ -94,10 +100,14 @@ export default function InsightArticlePage({ params }: { params: { slug: string 
             {related.map((r, i) => (
               <Reveal key={r.slug} delay={i * 0.06}>
                 <Link href={`/insights/${r.slug}`} className="block group h-full glass card-hover rounded-xl overflow-hidden">
-                  <div className="aspect-[16/10] bg-navy-mid relative">
-                    <div className="absolute inset-0 bg-grid opacity-30" />
-                    <div className="absolute inset-0 bg-radial-glow" />
-                    <div className="absolute bottom-4 left-4 text-[11px] font-mono uppercase tracking-wider text-signal/90">
+                  <div className="relative">
+                    <BrandImage
+                      src={insightImage(r.slug)}
+                      alt={r.title}
+                      className="aspect-[16/10]"
+                      rounded="rounded-none"
+                    />
+                    <div className="absolute bottom-4 left-4 text-[11px] font-mono uppercase tracking-wider text-signal">
                       {r.category}
                     </div>
                   </div>

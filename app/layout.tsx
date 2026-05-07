@@ -3,6 +3,7 @@ import "./globals.css";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { CookieBanner } from "@/components/CookieBanner";
+import { FloatingTool } from "@/components/FloatingTool";
 
 export const metadata: Metadata = {
   title: "G'Secure Labs — Next-Gen Cybersecurity for Enterprises",
@@ -18,6 +19,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <Navbar />
         <main>{children}</main>
         <Footer />
+        <FloatingTool />
         <CookieBanner />
       </body>
     </html>

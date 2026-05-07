@@ -5,6 +5,8 @@ import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { CtaBlock } from "@/components/CtaBlock";
 import { ParticleNetwork } from "@/components/ParticleNetwork";
 import { insights } from "@/lib/content";
+import { BrandImage } from "@/components/BrandImage";
+import { insightImage } from "@/lib/images";
 
 export const metadata = { title: "Insights — G'Secure Labs" };
 
@@ -37,10 +39,14 @@ export default function InsightsPage() {
         <div className="container-x">
           <Reveal>
             <Link href={`/insights/${featured.slug}`} className="grid md:grid-cols-[1fr_1.2fr] gap-10 group">
-              <div className="aspect-[4/3] bg-navy rounded-xl overflow-hidden relative">
-                <div className="absolute inset-0 bg-grid opacity-30" />
-                <div className="absolute inset-0 bg-radial-glow" />
-                <div className="absolute bottom-5 left-5 text-[11px] font-mono uppercase tracking-wider text-signal/90">
+              <div className="relative">
+                <BrandImage
+                  src={insightImage(featured.slug)}
+                  alt={featured.title}
+                  className="aspect-[4/3]"
+                  rounded="rounded-xl"
+                />
+                <div className="absolute bottom-5 left-5 text-[11px] font-mono uppercase tracking-wider text-signal">
                   {featured.category}
                 </div>
               </div>
@@ -69,10 +75,14 @@ export default function InsightsPage() {
             {rest.map((it, i) => (
               <Reveal key={it.slug} delay={i * 0.05}>
                 <Link href={`/insights/${it.slug}`} className="block group h-full">
-                  <div className="aspect-[16/10] bg-navy-mid rounded-lg overflow-hidden mb-4 relative border border-white/5 group-hover:border-signal/30 transition">
-                    <div className="absolute inset-0 bg-grid opacity-30" />
-                    <div className="absolute inset-0 bg-radial-glow opacity-60" />
-                    <div className="absolute bottom-4 left-4 text-[11px] font-mono uppercase tracking-wider text-signal/90">
+                  <div className="relative mb-4">
+                    <BrandImage
+                      src={insightImage(it.slug)}
+                      alt={it.title}
+                      className="aspect-[16/10]"
+                      rounded="rounded-lg"
+                    />
+                    <div className="absolute bottom-4 left-4 text-[11px] font-mono uppercase tracking-wider text-signal">
                       {it.category}
                     </div>
                   </div>

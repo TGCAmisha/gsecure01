@@ -5,7 +5,10 @@ import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { CtaBlock } from "@/components/CtaBlock";
 import { ParticleNetwork } from "@/components/ParticleNetwork";
 import { stats, leaders, offices, partners } from "@/lib/content";
+import { StatValue } from "@/components/AnimatedCounter";
 import { PortraitAvatar } from "@/components/PortraitAvatar";
+import { BrandImage } from "@/components/BrandImage";
+import { heroImages } from "@/lib/images";
 
 export const metadata = { title: "About — G'Secure Labs" };
 
@@ -43,7 +46,9 @@ export default function AboutPage() {
             {stats.map((s, i) => (
               <Reveal key={s.label} delay={i * 0.05}>
                 <div className="glass rounded-lg p-5 h-full">
-                  <div className="font-mono text-3xl md:text-[34px] font-semibold text-gradient-signal">{s.value}</div>
+                  <div className="font-mono text-3xl md:text-[34px] font-semibold text-gradient-signal">
+                    <StatValue value={s.value} />
+                  </div>
                   <div className="text-xs text-inkSoft/60 mt-1.5">{s.label}</div>
                 </div>
               </Reveal>
@@ -60,6 +65,14 @@ export default function AboutPage() {
             <h2 className="text-display-md md:text-display-lg font-semibold tracking-tight leading-[1.05]">
               Founded on a different model.
             </h2>
+            <div className="mt-8 hidden lg:block">
+              <BrandImage
+                src={heroImages.about}
+                alt="G'Secure Labs team"
+                className="aspect-[4/3]"
+                rounded="rounded-2xl"
+              />
+            </div>
           </Reveal>
           <Reveal delay={0.1}>
             <div className="space-y-4 text-base md:text-lg text-navy/80 leading-relaxed">

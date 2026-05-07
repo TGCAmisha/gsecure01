@@ -8,6 +8,18 @@ import { Breadcrumbs } from "./Breadcrumbs";
 import { CtaBlock } from "./CtaBlock";
 import { ParticleNetwork } from "./ParticleNetwork";
 import { MdrArchitecture } from "./MdrArchitecture";
+import { BrandImage } from "./BrandImage";
+import { pic } from "@/lib/images";
+
+const serviceImageMap: Record<string, string> = {
+  mdr: "gsecure-mdr-detection-engineer",
+  soc: "gsecure-soc-control-room",
+  grc: "gsecure-grc-compliance-audit",
+  vapt: "gsecure-vapt-pentest-keyboard",
+  "application-security": "gsecure-appsec-code-review",
+  essential: "gsecure-essential-startup-team",
+  coe: "gsecure-coe-architecture-board"
+};
 
 export function ServiceDetail({ service }: { service: Service }) {
   const Icon = getIcon(service.icon);
@@ -49,19 +61,30 @@ export function ServiceDetail({ service }: { service: Service }) {
             </Reveal>
 
             <Reveal delay={0.15}>
-              <div className="glass-strong rounded-xl p-7 lg:p-8 relative overflow-hidden">
-                <div className="absolute inset-0 bg-radial-glow opacity-60" />
-                <div className="relative">
-                  <div className="text-[11px] uppercase tracking-[0.18em] font-mono text-signal/85 mb-5">
-                    Outcomes you can measure
-                  </div>
-                  <div className="space-y-4">
-                    {service.outcomes.map((o) => (
-                      <div key={o.label} className="flex items-baseline justify-between border-b border-white/5 pb-3 last:border-0">
-                        <span className="text-sm text-inkSoft/65">{o.label}</span>
-                        <span className="font-mono text-lg text-gradient-signal font-semibold">{o.value}</span>
-                      </div>
-                    ))}
+              <div className="space-y-4">
+                <BrandImage
+                  src={pic(serviceImageMap[service.slug] ?? service.slug, 1200, 900)}
+                  alt={`${service.name} — service`}
+                  className="aspect-[4/3]"
+                  rounded="rounded-2xl"
+                />
+                <div className="glass-strong rounded-xl p-6 relative overflow-hidden">
+                  <div className="absolute inset-0 bg-radial-glow opacity-50" />
+                  <div className="relative">
+                    <div className="text-[11px] uppercase tracking-[0.18em] font-mono text-signal/85 mb-4">
+                      Outcomes you can measure
+                    </div>
+                    <div className="space-y-3">
+                      {service.outcomes.map((o) => (
+                        <div
+                          key={o.label}
+                          className="flex items-baseline justify-between border-b border-white/5 pb-2.5 last:border-0"
+                        >
+                          <span className="text-sm text-inkSoft/65">{o.label}</span>
+                          <span className="font-mono text-lg text-gradient-signal font-semibold">{o.value}</span>
+                        </div>
+                      ))}
+                    </div>
                   </div>
                 </div>
               </div>
