@@ -11,9 +11,8 @@ export function generateStaticParams() {
   return caseStudies.map((cs) => ({ slug: cs.slug }));
 }
 
-export default async function CaseStudyPage({ params }: { params: Promise<{ slug: string }> }) {
-  const { slug } = await params;
-  const cs = caseStudies.find((c) => c.slug === slug);
+export default function CaseStudyPage({ params }: { params: { slug: string } }) {
+  const cs = caseStudies.find((c) => c.slug === params.slug);
   if (!cs) notFound();
 
   const related = caseStudies.filter((c) => c.slug !== cs.slug).slice(0, 3);

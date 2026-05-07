@@ -10,9 +10,8 @@ export function generateStaticParams() {
   return insights.map((i) => ({ slug: i.slug }));
 }
 
-export default async function InsightArticlePage({ params }: { params: Promise<{ slug: string }> }) {
-  const { slug } = await params;
-  const article = insights.find((i) => i.slug === slug);
+export default function InsightArticlePage({ params }: { params: { slug: string } }) {
+  const article = insights.find((i) => i.slug === params.slug);
   if (!article) notFound();
   const related = insights.filter((i) => i.slug !== article.slug).slice(0, 3);
 

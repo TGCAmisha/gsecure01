@@ -11,7 +11,10 @@
       "PowerShell(git push gsecure HEAD:main)",
       "WebFetch(domain:www.gsecurelabs.com)",
       "PowerShell(git ls-tree --name-only HEAD)",
-      "PowerShell($env:PATH; Write-Output \"---\"; Get-Command node -ErrorAction SilentlyContinue; Get-Command npm -ErrorAction SilentlyContinue; Test-Path \"C:\\\\Program Files\\\\nodejs\"; Test-Path \"$env:APPDATA\\\\npm\")"
+      "PowerShell($env:PATH; Write-Output \"---\"; Get-Command node -ErrorAction SilentlyContinue; Get-Command npm -ErrorAction SilentlyContinue; Test-Path \"C:\\\\Program Files\\\\nodejs\"; Test-Path \"$env:APPDATA\\\\npm\")",
+      "Bash(git commit -m 'G-2: complete Next.js redesign — animated multi-page leadership showcase *)",
+      "WebFetch(domain:api.github.com)",
+      "WebFetch(domain:vercel.com)"
     ]
   }
 }

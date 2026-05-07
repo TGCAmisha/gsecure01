@@ -1,6 +1,5 @@
-import type { Config } from "tailwindcss";
-
-const config: Config = {
+/** @type {import('tailwindcss').Config} */
+module.exports = {
   content: ["./app/**/*.{ts,tsx}", "./components/**/*.{ts,tsx}"],
   theme: {
     extend: {
@@ -30,10 +29,8 @@ const config: Config = {
       },
       animation: {
         "fade-up": "fadeUp 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards",
-        "pulse-slow": "pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite",
         "marquee": "marquee 40s linear infinite",
-        "spin-slow": "spin 60s linear infinite",
-        "ping-slow": "ping 3s cubic-bezier(0,0,0.2,1) infinite"
+        "spin-slow": "spin 60s linear infinite"
       },
       keyframes: {
         fadeUp: {
@@ -56,5 +53,3 @@ const config: Config = {
   },
   plugins: []
 };
-
-export default config;
