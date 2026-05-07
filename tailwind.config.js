@@ -18,8 +18,8 @@ module.exports = {
         inkSoft: "#F1F5F9"
       },
       fontFamily: {
-        sans: ["Geist", "Inter", "system-ui", "sans-serif"],
-        mono: ["Geist Mono", "JetBrains Mono", "ui-monospace", "monospace"]
+        sans: ["Manrope", "system-ui", "sans-serif"],
+        mono: ["JetBrains Mono", "ui-monospace", "monospace"]
       },
       fontSize: {
         "display-xl": ["72px", { lineHeight: "1.05", letterSpacing: "-0.025em" }],

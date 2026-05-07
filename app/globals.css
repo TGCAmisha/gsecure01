@@ -2,7 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-@import url("https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700;800&family=Geist+Mono:wght@400;500;600&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap");
 
 :root {
   --navy: #0a1628;
@@ -14,8 +14,8 @@
 }
 
 html, body { background: var(--navy); color: #f1f5f9; }
-body { font-family: "Geist", "Inter", system-ui, sans-serif; -webkit-font-smoothing: antialiased; font-feature-settings: "ss01", "ss02", "cv01", "cv11"; }
-.font-mono, code, kbd, pre, samp { font-family: "Geist Mono", "JetBrains Mono", ui-monospace, monospace; }
+body { font-family: "Manrope", system-ui, sans-serif; -webkit-font-smoothing: antialiased; font-feature-settings: "ss01", "ss02", "cv11"; }
+.font-mono, code, kbd, pre, samp { font-family: "JetBrains Mono", ui-monospace, monospace; }
 
 ::selection { background: rgba(0, 229, 160, 0.3); color: #fff; }
 
