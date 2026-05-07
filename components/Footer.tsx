@@ -35,7 +35,13 @@ export function Footer() {
         <FooterCol title="Industries" items={navigation.industries} />
         <FooterCol
           title="Company"
-          items={[...navigation.company, ...navigation.resources]}
+          items={[
+            { name: "About Us", href: "/about" },
+            { name: "Partners", href: "/partners" },
+            { name: "Contact Us", href: "/contact" },
+            { name: "Careers", href: "/careers" },
+            ...navigation.resources
+          ]}
         />
       </div>
 

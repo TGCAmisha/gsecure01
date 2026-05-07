@@ -617,12 +617,21 @@ export const navigation = {
     { name: "Case Studies", href: "/case-studies" },
     { name: "Insights", href: "/insights" },
     { name: "News Room", href: "/news" },
-    { name: "DORA Readiness Checker", href: "/tools/dora-readiness" }
+    { name: "DORA Readiness Checker", href: "/tools/dora-readiness" },
+    { name: "Careers", href: "/careers" }
   ],
-  company: [
-    { name: "About Us", href: "/about" },
-    { name: "Partners", href: "/partners" },
-    { name: "Careers", href: "/careers" },
-    { name: "Contact Us", href: "/contact" }
-  ]
+  global: {
+    regions: [
+      { name: "Europe", href: "/contact#europe", note: "10 offices · Nordics · DACH · UK · Benelux" },
+      { name: "Americas", href: "/contact#americas", note: "Austin · Saint John" },
+      { name: "Asia & Middle East", href: "/contact#asia", note: "India · UAE" },
+      { name: "Africa", href: "/contact#africa", note: "Johannesburg" }
+    ],
+    languages: [
+      { name: "English", code: "EN", href: "/" },
+      { name: "Suomi", code: "FI", href: "/" },
+      { name: "Norsk", code: "NO", href: "/" },
+      { name: "Svenska", code: "SV", href: "/" }
+    ]
+  }
 };
