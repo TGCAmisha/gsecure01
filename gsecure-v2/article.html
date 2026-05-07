@@ -344,6 +344,15 @@ function getSlug(){
 
 function initials(name){ return name.replace(/&amp;/g,'&').split(' ').map(s=>s[0]).slice(0,2).join(''); }
 
+const AUTHOR_SLUG = {
+  'Marie Dubois':'marie-dubois',
+  'Erik Lindqvist':'erik-lindqvist',
+  'Priya Anand':'priya-anand',
+  "James O'Connor":'james-oconnor',
+  'Umesh Singh Rajput':'umesh-rajput',
+  'Ashish Shah':'ashish-shah'
+};
+
 function render(){
   const slug = getSlug();
   const a = ARTICLES[slug] || ARTICLES['engineering-secure'];
@@ -356,7 +365,15 @@ function render(){
   document.getElementById('a-lede').textContent = a.lede;
   document.getElementById('a-cover').src = a.cover;
   document.getElementById('a-cover').alt = a.title;
-  document.getElementById('a-author-name').innerHTML = a.author[0];
+  const authorName = a.author[0].replace(/&amp;/g,'&');
+  const authorKey = authorName.replace(/&#39;/g,"'");
+  const authorSlug = AUTHOR_SLUG[authorKey];
+  const nameEl = document.getElementById('a-author-name');
+  if (authorSlug) {
+    nameEl.innerHTML = `<a href="author.html?id=${authorSlug}" class="hover:text-brand-orange">${a.author[0]}</a>`;
+  } else {
+    nameEl.innerHTML = a.author[0];
+  }
   document.getElementById('a-author-role').textContent = a.author[1];
   document.getElementById('a-author-init').textContent = initials(a.author[0]);
   document.getElementById('a-body').innerHTML = a.body;

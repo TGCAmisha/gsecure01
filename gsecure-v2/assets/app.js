@@ -28,6 +28,7 @@ const SERVICES = [
 const RESOURCES = [
   ['success-stories.html','Success Stories'],
   ['insights.html','Insights'],
+  ['press.html','Press &amp; Media'],
   ['news-room.html','News Room'],
 ];
 
