@@ -26,18 +26,18 @@
 <script src="assets/app.js"></script>
 <script>
 const POSTS=[
-  ['Article','Apr 22, 2026','Engineering for Security & Compliance by Design','How modern platform teams bake controls into the SDLC instead of bolting them on.'],
-  ['Blog','Mar 14, 2026','Building Secure, Compliant Systems in Regulated European Environments','A practical lens on DORA, NIS2, and what enterprise CISOs are prioritizing right now.'],
-  ['Article','Feb 02, 2026','Cyber Resilience vs. Cyber Defense: What Leaders Should Prioritize','Why resilience — not perimeter hardening — is the differentiator in 2026.'],
-  ['Blog','Jan 19, 2026','MITRE ATT&CK as an Operating Manual','Moving from ATT&CK as a checklist to ATT&CK as a daily operating model.'],
-  ['Article','Dec 04, 2025','The Identity Security Inflection Point','Why identity is now the primary attack surface — and what to do about it.'],
-  ['Blog','Nov 11, 2025','Threat Hunting on a Budget','Pragmatic hunts your team can run with the telemetry you already have.'],
-  ['Article','Oct 02, 2025','SOC Metrics That Actually Matter','Killing vanity metrics — and the small set of numbers worth tracking.'],
-  ['Blog','Sep 14, 2025','Pen Testing in the Age of AI','How offensive teams are integrating LLMs — and why defenders should care.'],
-  ['Article','Aug 21, 2025','Compliance as Code','Treating GRC artifacts the way platform teams treat infrastructure.'],
+  ['engineering-secure','Article','Apr 22, 2026','Engineering for Security & Compliance by Design','How modern platform teams bake controls into the SDLC instead of bolting them on.'],
+  ['regulated-eu','Blog','Mar 14, 2026','Building Secure, Compliant Systems in Regulated European Environments','A practical lens on DORA, NIS2, and what enterprise CISOs are prioritizing right now.'],
+  ['resilience-vs-defense','Article','Feb 02, 2026','Cyber Resilience vs. Cyber Defense: What Leaders Should Prioritize','Why resilience — not perimeter hardening — is the differentiator in 2026.'],
+  ['mitre-attack','Blog','Jan 19, 2026','MITRE ATT&CK as an Operating Manual','Moving from ATT&CK as a checklist to ATT&CK as a daily operating model.'],
+  ['identity-inflection','Article','Dec 04, 2025','The Identity Security Inflection Point','Why identity is now the primary attack surface — and what to do about it.'],
+  ['hunting-budget','Blog','Nov 11, 2025','Threat Hunting on a Budget','Pragmatic hunts your team can run with the telemetry you already have.'],
+  ['soc-metrics','Article','Oct 02, 2025','SOC Metrics That Actually Matter','Killing vanity metrics — and the small set of numbers worth tracking.'],
+  ['pentest-ai','Blog','Sep 14, 2025','Pen Testing in the Age of AI','How offensive teams are integrating LLMs — and why defenders should care.'],
+  ['compliance-as-code','Article','Aug 21, 2025','Compliance as Code','Treating GRC artifacts the way platform teams treat infrastructure.'],
 ];
-document.getElementById('grid').innerHTML = POSTS.map(([tag,date,title,excerpt])=>`
-  <a href="#" class="card p-6 reveal block">
+document.getElementById('grid').innerHTML = POSTS.map(([slug,tag,date,title,excerpt])=>`
+  <a href="article.html?slug=${slug}" class="card p-6 reveal block">
     <div class="flex items-center gap-3 mb-4"><span class="chip">${tag}</span><span class="text-brand-mute text-xs font-mono">${date}</span></div>
     <h3 class="text-white font-bold text-lg leading-snug">${title}</h3>
     <p class="text-brand-mute text-[13.5px] mt-2">${excerpt}</p>
