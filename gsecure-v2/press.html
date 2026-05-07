@@ -156,15 +156,18 @@ document.getElementById('logo-strip').innerHTML = OUTLETS.map(([code,name])=>`
 
 /* ===== Media mentions (clearly fictional, links go to # until real URLs land) ===== */
 const MENTIONS = [
-  ['Nordic Security Review','Apr 28, 2026','How Nordic SOCs are operationalizing MITRE ATT&amp;CK at scale','Featuring commentary from Priya Anand on shifting from coverage maps to validated detection content.'],
-  ['Enterprise CISO Quarterly','Apr 12, 2026','The new resilience benchmark: 1-10-45','Erik Lindqvist on why outcome SLAs are replacing the old prevention-versus-detection debate.'],
-  ['EU Cyber Digest','Mar 30, 2026','DORA in practice: lessons from early adopters','James O\'Connor on three control gaps that catch financial institutions late in the audit cycle.'],
-  ['Boardroom Defense','Mar 14, 2026','Why boards are treating identity as the primary attack surface','Marie Dubois on the shift from perimeter-thinking to identity-first security strategy.'],
-  ['Stockholm Tech Wire','Feb 22, 2026','Sweden becomes a quiet powerhouse in managed cyber defense','A look at how Kista-based G\'Secure Labs is scaling its follow-the-sun SOC across 30+ countries.'],
-  ['The Resilient CIO','Feb 02, 2026','Compliance as code: shifting GRC into the developer workflow','Ashish Shah on treating audit evidence as a build artifact, not an annual project.'],
-  ['Capital Risk Journal','Jan 18, 2026','Operational resilience after NIS2','Roundtable contribution from G\'Secure leadership on board-level risk reporting in regulated industries.'],
-  ['TechExec EU','Dec 11, 2025','How AI-assisted phishing is breaking traditional awareness training','Marie Dubois cited on retiring grammar-based detections.'],
-  ['Cyber Frontiers Today','Nov 24, 2025','Pen testing in the age of LLM-augmented offensive operations','Comment from G\'Secure Labs on the productivity shift in red-team work.'],
+  ['Nordic Security Review','Apr 28, 2026','How Nordic SOCs are operationalizing MITRE ATT&amp;CK at scale','Priya Anand on the shift away from coverage heatmaps toward validated, regularly tested detection content. "If you can\'t prove a technique fires in your environment, you don\'t cover it — you hope you cover it."'],
+  ['Enterprise CISO Quarterly','Apr 12, 2026','The new resilience benchmark: 1-10-45','Erik Lindqvist on why outcome SLAs are replacing the old prevention-versus-detection debate, and what board reporting looks like when it is anchored to detect, investigate, and respond windows.'],
+  ['EU Cyber Digest','Mar 30, 2026','DORA in practice: lessons from early adopters','James O\'Connor walks through three control gaps that catch financial institutions late in the audit cycle — third-party concentration, exit testing, and the four-hour notification clock.'],
+  ['Boardroom Defense','Mar 14, 2026','Why boards are treating identity as the primary attack surface','Marie Dubois on the shift from perimeter-thinking to identity-first security strategy, and why phishing-resistant MFA is now a board-level conversation in regulated industries.'],
+  ['Stockholm Tech Wire','Feb 22, 2026','Sweden quietly becomes a powerhouse in managed cyber defense','How Kista-based G\'Secure Labs scaled a follow-the-sun SOC across 30+ countries, and the operating-model decisions that let a Nordic firm compete with US-headquartered MDR providers.'],
+  ['The Resilient CIO','Feb 02, 2026','Compliance as code: shifting GRC into the developer workflow','Ashish Shah on treating audit evidence as a build artifact, not an annual project. Includes a worked example of policy-as-code gates that block non-compliant deploys.'],
+  ['Capital Risk Journal','Jan 18, 2026','Operational resilience after NIS2','Roundtable contribution from G\'Secure leadership on board-level risk reporting in regulated industries, with practical examples of how exit plans and tabletop exercises have moved from optional to required.'],
+  ['TechExec EU','Dec 11, 2025','How AI-assisted phishing is breaking traditional awareness training','Marie Dubois cited on retiring grammar-based detections and rebuilding email controls around sender-behavior baselines.'],
+  ['Cyber Frontiers Today','Nov 24, 2025','Pen testing in the age of LLM-augmented offensive operations','Comment from G\'Secure Labs on the productivity shift in red-team work — and why detection content keyed on payload signatures is becoming brittle.'],
+  ['Industry Pulse Weekly','Oct 30, 2025','The OT/IT convergence story Nordic manufacturers are quietly winning','Case-study angle featuring a 30-plant G\'Secure deployment that unified visibility across legacy industrial systems and corporate IT.'],
+  ['Security Compass Monthly','Oct 12, 2025','From SOC 2 to ISO 27001 in five months','James O\'Connor on the mapping discipline that lets SOC 2-mature firms reach ISO 27001 certification without rebuilding their controls library.'],
+  ['Nordic SOC Observer','Sep 02, 2025','The SOC metric most boards still get wrong','Erik Lindqvist on why mean-time-to-acknowledge is a vanity number and what the next-generation metric set looks like for executive review.'],
 ];
 document.getElementById('mentions-grid').innerHTML = MENTIONS.map(([outlet,date,title,excerpt])=>`
   <a href="#" class="card p-6 reveal block">
@@ -179,28 +182,29 @@ document.getElementById('mentions-grid').innerHTML = MENTIONS.map(([outlet,date,
 
 /* ===== Awards (generic, non-real organizations) ===== */
 const AWARDS = [
-  ['2026','Industry Recognition','Excellence in Managed Detection &amp; Response'],
-  ['2025','European Security Awards','Top SOC Service Provider — Nordics'],
-  ['2025','Global CISO Choice','Best GRC Partner for Financial Services'],
-  ['2024','EU Cyber Innovation','Winner — Threat Intelligence Operations'],
+  ['2026','Industry Recognition','Excellence in Managed Detection &amp; Response','Honored for outcome-based SLAs and the 1/10/45 detect-investigate-respond framework now adopted by enterprise customers across the Nordics.'],
+  ['2025','European Security Awards','Top SOC Service Provider — Nordics','Recognized for follow-the-sun SOC operations, senior-led shift coverage, and customer-validated detection content quality.'],
+  ['2025','Global CISO Choice','Best GRC Partner for Financial Services','Voted by CISO peer panel for DORA, NIS2 and ISO 27001 readiness work delivered on accelerated timelines.'],
+  ['2024','EU Cyber Innovation','Winner — Threat Intelligence Operations','For operationalizing intelligence into validated detection content and reducing alert noise without losing true positives.'],
 ];
-document.getElementById('awards-grid').innerHTML = AWARDS.map(([year,prog,what])=>`
+document.getElementById('awards-grid').innerHTML = AWARDS.map(([year,prog,what,detail])=>`
   <div class="card p-6 reveal">
     <div class="flex items-center justify-between mb-3"><span class="font-mono text-brand-orange font-bold text-lg">${year}</span><span class="w-9 h-9 rounded-md bg-brand-orange/10 text-brand-orange grid place-items-center"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="6"/><path d="M9 14l-2 8 5-3 5 3-2-8"/></svg></span></div>
     <div class="text-white font-bold text-[15px] leading-snug">${prog}</div>
-    <div class="text-brand-mute text-[13px] mt-1.5">${what}</div>
+    <div class="text-brand-orange text-[12px] mt-1 font-mono uppercase tracking-wider">${what}</div>
+    <div class="text-brand-mute text-[13px] mt-2.5 leading-relaxed">${detail}</div>
   </div>`).join('');
 
 /* ===== Spokespeople (clickable into author profiles) ===== */
 const SPOKES = [
-  ['marie-dubois','Marie Dubois','Head of Threat Research','Threat intel · adversary emulation · phishing'],
-  ['erik-lindqvist','Erik Lindqvist','CEO &amp; Co-Founder','Strategy · resilience · operating model'],
-  ['priya-anand','Priya Anand','Chief Threat Officer','SOC ops · detection engineering · hunting'],
-  ['james-oconnor','James O\'Connor','VP, GRC Practice','DORA · NIS2 · ISO 27001 · SOC 2'],
-  ['umesh-rajput','Umesh Singh Rajput','Head of Engineering','Platform security · SDLC · compliance-as-code'],
-  ['ashish-shah','Ashish Shah','Head of GRC','Risk management · audit · framework mapping'],
+  ['marie-dubois','Marie Dubois','Head of Threat Research','EN · FR','Threat intelligence operations, adversary emulation, AI-augmented phishing, identity-driven attacks, European threat landscape briefings'],
+  ['erik-lindqvist','Erik Lindqvist','CEO &amp; Co-Founder','EN · SV','Operational resilience, SOC operating models, board-level risk reporting, the economics of MDR, Nordic cybersecurity market trends'],
+  ['priya-anand','Priya Anand','Chief Threat Officer','EN','Detection engineering, threat hunting, MITRE ATT&amp;CK as an operating manual, alert fatigue, ransomware containment playbooks'],
+  ['james-oconnor','James O\'Connor','VP, GRC Practice','EN','DORA implementation, NIS2 readiness, ISO 27001 and SOC 2 mapping, third-party risk and concentration, audit defense'],
+  ['umesh-rajput','Umesh Singh Rajput','Head of Engineering','EN','Platform engineering for security, secure SDLC, compliance-as-code, automation in detection pipelines, SOC tooling'],
+  ['ashish-shah','Ashish Shah','Head of GRC','EN','Governance frameworks, risk register design, policy-as-code, audit evidence automation, GRC tooling'],
 ];
-document.getElementById('spokes-grid').innerHTML = SPOKES.map(([id,name,role,topics])=>{
+document.getElementById('spokes-grid').innerHTML = SPOKES.map(([id,name,role,langs,topics])=>{
   const init = name.replace(/&#39;/g,'\'').replace(/'/g,'').split(' ').map(s=>s[0]).slice(0,2).join('');
   return `<a href="author.html?id=${id}" class="card p-6 reveal block group">
     <div class="flex items-center gap-4 mb-4">
@@ -208,9 +212,10 @@ document.getElementById('spokes-grid').innerHTML = SPOKES.map(([id,name,role,top
       <div>
         <div class="text-white font-bold text-[15px]">${name}</div>
         <div class="text-brand-mute text-[12.5px]">${role}</div>
+        <div class="font-mono text-brand-orange text-[10.5px] mt-0.5 uppercase tracking-wider">Available in: ${langs}</div>
       </div>
     </div>
-    <div class="text-brand-body text-[13px]"><span class="text-brand-mute uppercase tracking-wider text-[11px]">Topics:</span> ${topics}</div>
+    <div class="text-brand-body text-[13px] leading-relaxed"><span class="text-brand-mute uppercase tracking-wider text-[11px]">Available for comment on:</span><br>${topics}</div>
     <span class="mt-4 inline-flex items-center gap-1 text-brand-orange text-[13px] font-semibold group-hover:gap-2 transition-all">View profile →</span>
   </a>`;
 }).join('');
