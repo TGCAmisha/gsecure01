@@ -1,8 +1,4 @@
 {
-  "cleanUrls": true,
-  "trailingSlash": false,
-  "rewrites": [
-    { "source": "/", "destination": "/gsecure-v2/index.html" },
-    { "source": "/(.*)", "destination": "/gsecure-v2/$1" }
-  ]
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "framework": "nextjs"
 }

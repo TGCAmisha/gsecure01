@@ -8,7 +8,10 @@
       "WebFetch(domain:g-securenewredesign.vercel.app)",
       "WebFetch(domain:id-preview--4278fcd6-ca02-4e67-9ae2-11c589583f47.lovable.app)",
       "PowerShell(git remote add gsecure https://github.com/TGCAmisha/gsecure01.git)",
-      "PowerShell(git push gsecure HEAD:main)"
+      "PowerShell(git push gsecure HEAD:main)",
+      "WebFetch(domain:www.gsecurelabs.com)",
+      "PowerShell(git ls-tree --name-only HEAD)",
+      "PowerShell($env:PATH; Write-Output \"---\"; Get-Command node -ErrorAction SilentlyContinue; Get-Command npm -ErrorAction SilentlyContinue; Test-Path \"C:\\\\Program Files\\\\nodejs\"; Test-Path \"$env:APPDATA\\\\npm\")"
     ]
   }
 }
