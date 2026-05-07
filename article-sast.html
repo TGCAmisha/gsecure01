@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Why your SAST keeps missing business-logic flaws — G'Secure Labs</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+<div class="bg-grid"></div>
+<div id="site-header"></div>
+
+<section class="article-hero">
+  <div class="container">
+    <div class="breadcrumb"><a href="index.html">Home</a> / <a href="insights.html">Insights</a> / Article</div>
+    <div class="meta-row">
+      <span class="pill">AppSec</span>
+      <span>·</span><span>6 min read</span>
+      <span>·</span><span>Published January 2026</span>
+    </div>
+    <h1>Why your SAST keeps missing business-logic flaws</h1>
+    <p class="lede">SAST is excellent at finding patterns it has been taught. Business logic is, by definition, the part it has not. Here is how to fill the gap without doubling your AppSec spend.</p>
+    <div class="author">
+      <img src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fit=crop&w=200&q=80" alt="Priya Anand"/>
+      <div><strong>Priya Anand</strong><span>Chief Threat Officer</span></div>
+    </div>
+  </div>
+</section>
+
+<div class="article-cover reveal">
+  <img src="https://images.unsplash.com/photo-1542831371-29b0f74f9713?auto=format&fit=crop&w=1600&q=80" alt="Code on screen"/>
+</div>
+
+<article class="article-body">
+  <p>Pentests keep finding the same class of issues that your SAST never raises. Coupon codes that stack against the rules. Refund flows that issue value before the source charge clears. Step-up authentication that can be skipped by replaying an earlier session. SAST is not broken. It is being asked to do something it cannot do.</p>
+
+  <h2>What SAST does well</h2>
+  <p>Pattern matching against known dangerous primitives. SQL string concatenation. Unvalidated deserialization. Hard-coded credentials. Insecure defaults in popular libraries. For these, modern SAST is fast, cheap, and accurate.</p>
+
+  <h2>Where it falls down</h2>
+  <p>Business-logic flaws are not patterns. They are violations of intent. The code compiles, the tests pass, the security scanner sees nothing wrong — but the flow does something the business never meant to allow. Three examples we have all seen:</p>
+  <ul>
+    <li>A discount code that is checked but not invalidated, allowing reuse</li>
+    <li>A multi-step form that lets you submit step three without completing step two</li>
+    <li>An API that accepts a <code>userId</code> in the body and trusts it instead of the session</li>
+  </ul>
+  <p>None of those flaws have a syntactic signature. SAST cannot see them.</p>
+
+  <blockquote>
+    Business logic vulnerabilities are not bugs in the code. They are mismatches between what the code does and what the business meant for it to do.
+  </blockquote>
+
+  <h2>What actually catches them</h2>
+
+  <h3>Threat modeling, before the build</h3>
+  <p>A 90-minute threat model on a feature the size of a checkout flow will surface more business-logic risk than any scanner. The exercise is cheap; the discipline is the hard part.</p>
+
+  <h3>Abuse cases in your test suite</h3>
+  <p>For every "happy path" automated test, write at least one "abuse path." What if the user skips a step? What if they reuse a token? What if they submit a value the form was never supposed to send? These belong in the same test runner as your normal tests, not in a separate security tool.</p>
+
+  <h3>Manual code review focused on flows, not files</h3>
+  <p>Read the code following the user's journey. Sign up, log in, place an order, request a refund. You will find issues a file-by-file review never would, because the flaws live in the seams between modules.</p>
+
+  <h3>Targeted penetration testing</h3>
+  <p>Scope a quarterly pentest specifically against business-logic abuse. Give the testers a feature, not a URL list. The findings will tell you which flows need attention next.</p>
+
+  <div class="callout">
+    <div class="ic">🎯</div>
+    <div>
+      <strong>Want a 60-minute threat-model template?</strong><br>
+      We share the exact agenda our consultants use to run a feature-level threat model with a product team. <a href="contact.html">Request the template →</a>
+    </div>
+  </div>
+
+  <h2>What to do this quarter</h2>
+  <p>Pick one critical flow — the one that, if abused, would cost you the most. Run a threat model on it. Write three abuse-case tests against it. Have a senior engineer read the flow end to end. Then move to the next one. You will catch business-logic flaws faster than any tool can teach itself to find them.</p>
+
+  <p>SAST is a useful baseline. It is not an AppSec program. The flaws that hurt the most are the ones that look like working software.</p>
+</article>
+
+<div class="article-share">
+  <div class="tag-list">
+    <span class="tag-chip">#appsec</span>
+    <span class="tag-chip">#sast</span>
+    <span class="tag-chip">#business-logic</span>
+    <span class="tag-chip">#threat-modeling</span>
+  </div>
+  <div class="share-buttons">
+    <a href="#" aria-label="Share on LinkedIn">in</a>
+    <a href="#" aria-label="Share on Twitter">𝕏</a>
+    <a href="#" aria-label="Copy link">🔗</a>
+  </div>
+</div>
+
+<section class="related-posts">
+  <div class="container">
+    <h3>Related reading</h3>
+    <div class="blog-grid">
+      <a href="article-aws-iam.html" class="blog-card reveal">
+        <div class="img"><img src="https://images.unsplash.com/photo-1633265486064-086b219458ec?auto=format&fit=crop&w=800&q=80" alt=""/></div>
+        <div class="body"><div class="meta">Cloud Security · 6 min</div><h3>Hardening AWS IAM: 12 rules we apply to every environment</h3><span class="read-more">Read article →</span></div>
+      </a>
+      <a href="article-lolbins.html" class="blog-card reveal">
+        <div class="img"><img src="https://images.unsplash.com/photo-1510511459019-5dda7724fd87?auto=format&fit=crop&w=800&q=80" alt=""/></div>
+        <div class="body"><div class="meta">Threat Hunting · 8 min</div><h3>Hunting living-off-the-land binaries with UEBA</h3><span class="read-more">Read article →</span></div>
+      </a>
+      <a href="article.html" class="blog-card reveal">
+        <div class="img"><img src="https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=800&q=80" alt=""/></div>
+        <div class="body"><div class="meta">Threat Research · 5 min</div><h3>The rise of AI-assisted phishing — what defenders should do now</h3><span class="read-more">Read article →</span></div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<div id="site-footer"></div>
+<script src="assets/js/partials.js"></script>
+<script src="assets/js/main.js"></script>
+</body>
+</html>

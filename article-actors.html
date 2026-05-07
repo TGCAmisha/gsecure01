@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Three threat actors to watch in 2026 — G'Secure Labs</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+<div class="bg-grid"></div>
+<div id="site-header"></div>
+
+<section class="article-hero">
+  <div class="container">
+    <div class="breadcrumb"><a href="index.html">Home</a> / <a href="insights.html">Insights</a> / Article</div>
+    <div class="meta-row">
+      <span class="pill">Threat Intel</span>
+      <span>·</span><span>4 min read</span>
+      <span>·</span><span>Published January 2026</span>
+    </div>
+    <h1>Three threat actor archetypes to watch in 2026</h1>
+    <p class="lede">Forget the named-group merry-go-round for a moment. Three behavioral archetypes are quietly reshaping the threat landscape. Watch the patterns, not the press releases.</p>
+    <div class="author">
+      <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=200&q=80" alt="Marie Dubois"/>
+      <div><strong>Marie Dubois</strong><span>Head of Threat Research</span></div>
+    </div>
+  </div>
+</section>
+
+<div class="article-cover reveal">
+  <img src="https://images.unsplash.com/photo-1614064548237-096d5552c61c?auto=format&fit=crop&w=1600&q=80" alt="Cyber threat visualization"/>
+</div>
+
+<article class="article-body">
+  <p>Threat-actor names change. Tooling changes. Even target sectors rotate. What stays roughly stable are behavioral archetypes — the way a class of adversary thinks about access, monetization, and risk. Three of those archetypes are worth watching closely this year.</p>
+
+  <h2>1. The Patient Operator</h2>
+  <p>Lives in your environment for months without doing anything that looks like an attack. Establishes multiple persistent footholds, harvests credentials, maps your trust relationships, and waits for a strategic moment. By the time they act, they are already inside three of your "trusted" relationships.</p>
+
+  <p><strong>What they look like in telemetry:</strong> very low signal. Modest credential brute-force, occasional lateral movement that looks like normal admin behavior, slow exfil that does not trip volume thresholds. The hallmark is that nothing on its own is suspicious; the pattern only emerges when you stitch 60+ days of activity together.</p>
+
+  <p><strong>How to defend:</strong> long-window UEBA, periodic threat hunts targeted at "what changed in the last quarter," and aggressive credential rotation. Patient operators are defeated by patient defenders.</p>
+
+  <h2>2. The Automation-First Crew</h2>
+  <p>Builds a pipeline before they build a campaign. Their tooling is mostly off-the-shelf — what makes them effective is the speed at which they can pivot from initial access to monetization. Some of these crews can complete an end-to-end ransomware deployment in under three hours from initial foothold.</p>
+
+  <blockquote>
+    The competitive edge is no longer in the malware. It is in the operations.
+  </blockquote>
+
+  <p><strong>What they look like in telemetry:</strong> rapid sequencing of well-known TTPs in a short window. Recon → privilege escalation → lateral → encryption all within a single business day, often outside business hours.</p>
+
+  <p><strong>How to defend:</strong> the only effective control is auto-containment with pre-approved triggers. By the time a human analyst confirms the chain, the campaign is over. Detection has to translate to action without a manual handoff.</p>
+
+  <h2>3. The Insider-Adjacent</h2>
+  <p>Not a malicious insider exactly — a contractor, former employee, or third-party support engineer who still has access they should not. Sometimes the access is reused by an external attacker who compromised that person's credentials. Sometimes it is reused by the person themselves.</p>
+
+  <p><strong>What they look like in telemetry:</strong> authentication from unusual geos using legitimate credentials, often outside the user's normal device fingerprint. Sensitive data access that aligns with the user's old role rather than their current one. Sudden interest in source code, customer lists, or financial systems by someone who does not normally touch them.</p>
+
+  <p><strong>How to defend:</strong> aggressive joiner-mover-leaver discipline, role-based access reviews every quarter, and behavioral baselines that catch drift between a user's role and their access pattern.</p>
+
+  <div class="callout">
+    <div class="ic">🔍</div>
+    <div>
+      <strong>Want our quarterly threat brief?</strong><br>
+      Curated by our research team, sent every Tuesday. Real signal, no marketing fluff. <a href="contact.html">Subscribe →</a>
+    </div>
+  </div>
+
+  <h2>What unifies all three</h2>
+  <p>None of them rely primarily on novel malware. All three are operationally mature. The defenses that work across the board are not new tools — they are tighter detection content, faster decision-making, and the willingness to contain without waiting for certainty.</p>
+
+  <p>Watching named groups is fine for situational awareness. But if you defend against archetypes, your program survives the next renaming cycle.</p>
+</article>
+
+<div class="article-share">
+  <div class="tag-list">
+    <span class="tag-chip">#threat-intel</span>
+    <span class="tag-chip">#adversary-behavior</span>
+    <span class="tag-chip">#detection</span>
+    <span class="tag-chip">#defense</span>
+  </div>
+  <div class="share-buttons">
+    <a href="#" aria-label="Share on LinkedIn">in</a>
+    <a href="#" aria-label="Share on Twitter">𝕏</a>
+    <a href="#" aria-label="Copy link">🔗</a>
+  </div>
+</div>
+
+<section class="related-posts">
+  <div class="container">
+    <h3>Related reading</h3>
+    <div class="blog-grid">
+      <a href="article.html" class="blog-card reveal">
+        <div class="img"><img src="https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=800&q=80" alt=""/></div>
+        <div class="body"><div class="meta">Threat Research · 5 min</div><h3>The rise of AI-assisted phishing — what defenders should do now</h3><span class="read-more">Read article →</span></div>
+      </a>
+      <a href="article-lolbins.html" class="blog-card reveal">
+        <div class="img"><img src="https://images.unsplash.com/photo-1510511459019-5dda7724fd87?auto=format&fit=crop&w=800&q=80" alt=""/></div>
+        <div class="body"><div class="meta">Threat Hunting · 8 min</div><h3>Hunting living-off-the-land binaries with UEBA</h3><span class="read-more">Read article →</span></div>
+      </a>
+      <a href="article-ransomware.html" class="blog-card reveal">
+        <div class="img"><img src="https://images.unsplash.com/photo-1551434678-e076c223a692?auto=format&fit=crop&w=800&q=80" alt=""/></div>
+        <div class="body"><div class="meta">Incident Response · 9 min</div><h3>Anatomy of a 30-minute ransomware containment</h3><span class="read-more">Read article →</span></div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<div id="site-footer"></div>
+<script src="assets/js/partials.js"></script>
+<script src="assets/js/main.js"></script>
+</body>
+</html>

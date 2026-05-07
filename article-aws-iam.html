@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Hardening AWS IAM — G'Secure Labs</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+<div class="bg-grid"></div>
+<div id="site-header"></div>
+
+<section class="article-hero">
+  <div class="container">
+    <div class="breadcrumb"><a href="index.html">Home</a> / <a href="insights.html">Insights</a> / Article</div>
+    <div class="meta-row">
+      <span class="pill">Cloud Security</span>
+      <span>·</span><span>6 min read</span>
+      <span>·</span><span>Published March 2026</span>
+    </div>
+    <h1>Hardening AWS IAM: 12 rules we apply to every environment</h1>
+    <p class="lede">IAM is where most cloud breaches start and most cloud audits stall. These twelve rules are the baseline we deploy on day one of every engagement.</p>
+    <div class="author">
+      <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=200&q=80" alt="Erik Lindqvist"/>
+      <div><strong>Erik Lindqvist</strong><span>CEO &amp; Co-Founder</span></div>
+    </div>
+  </div>
+</section>
+
+<div class="article-cover reveal">
+  <img src="https://images.unsplash.com/photo-1633265486064-086b219458ec?auto=format&fit=crop&w=1600&q=80" alt="Cloud server room"/>
+</div>
+
+<article class="article-body">
+  <p>If you only fix one layer of your AWS estate, fix IAM. The vast majority of incidents we respond to in cloud environments trace back to over-permissive policies, dormant access keys, or weak conditions on assume-role trust. The good news: a tight IAM baseline is achievable in a single sprint.</p>
+
+  <h2>Identity hygiene</h2>
+  <ol>
+    <li><strong>No long-lived access keys for humans.</strong> All console access via SSO with MFA. Programmatic access via short-lived credentials.</li>
+    <li><strong>Disable root account access keys.</strong> Use the root account only for the few operations that require it.</li>
+    <li><strong>Rotate service-account keys quarterly.</strong> Use AWS Secrets Manager or a workload identity solution to make rotation a non-event.</li>
+    <li><strong>Block creation of IAM users.</strong> Service control policy at the org level. New principals come from your IdP, not from individual accounts.</li>
+  </ol>
+
+  <h2>Policy quality</h2>
+  <ol start="5">
+    <li><strong>No <code>"Action": "*"</code> in customer-managed policies.</strong> If a workload truly needs broad access, scope it with conditions.</li>
+    <li><strong>Use <code>aws:ResourceTag</code> and <code>aws:PrincipalTag</code> conditions.</strong> Tag-based access scales better than enumerated ARNs.</li>
+    <li><strong>Boundary policies on every privileged role.</strong> A permission boundary is the cheapest way to say "this role can never escalate beyond this set."</li>
+    <li><strong>Deny conditional public S3 access at the bucket and account level.</strong> Block Public Access at the org account; deny <code>"aws:PrincipalIsAWSService": "false"</code> on internal buckets.</li>
+  </ol>
+
+  <blockquote>
+    A wildcard action with a tight condition is fine. A wildcard action with no condition is a finding.
+  </blockquote>
+
+  <h2>Cross-account and federation</h2>
+  <ol start="9">
+    <li><strong>External ID required on every cross-account assume-role trust.</strong> No exceptions. Generate per-vendor.</li>
+    <li><strong>Source-IP conditions on break-glass roles.</strong> Limit emergency-access roles to your VPN range or a known bastion.</li>
+    <li><strong>Session duration capped at one hour for production roles.</strong> Long sessions extend the window of stolen-credential abuse.</li>
+  </ol>
+
+  <h2>Detection</h2>
+  <ol start="12">
+    <li><strong>CloudTrail organization trail with log-file integrity.</strong> Lake or Athena for queries. Detection rules for <code>iam:CreateAccessKey</code>, <code>iam:AttachUserPolicy</code>, <code>sts:AssumeRole</code> from new IPs, and any use of root.</li>
+  </ol>
+
+  <div class="callout">
+    <div class="ic">☁️</div>
+    <div>
+      <strong>Want our AWS IAM hardening playbook?</strong><br>
+      We share the Terraform and SCP modules behind these rules with engagement clients. <a href="contact.html">Get the kit →</a>
+    </div>
+  </div>
+
+  <h2>What to do this week</h2>
+  <p>If you cannot fix all twelve in one go, fix these three first: disable root access keys, deny new IAM user creation org-wide, and audit every assume-role trust for missing external IDs. Those three close the largest blast-radius issues we see in incident response.</p>
+
+  <p>IAM is one of the rare areas in cloud security where the baseline is well understood and the hard part is execution discipline. Start now, not after the audit.</p>
+</article>
+
+<div class="article-share">
+  <div class="tag-list">
+    <span class="tag-chip">#aws</span>
+    <span class="tag-chip">#iam</span>
+    <span class="tag-chip">#cloud-security</span>
+    <span class="tag-chip">#hardening</span>
+  </div>
+  <div class="share-buttons">
+    <a href="#" aria-label="Share on LinkedIn">in</a>
+    <a href="#" aria-label="Share on Twitter">𝕏</a>
+    <a href="#" aria-label="Copy link">🔗</a>
+  </div>
+</div>
+
+<section class="related-posts">
+  <div class="container">
+    <h3>Related reading</h3>
+    <div class="blog-grid">
+      <a href="article-sast.html" class="blog-card reveal">
+        <div class="img"><img src="https://images.unsplash.com/photo-1542831371-29b0f74f9713?auto=format&fit=crop&w=800&q=80" alt=""/></div>
+        <div class="body"><div class="meta">AppSec · 6 min</div><h3>Why your SAST keeps missing business-logic flaws</h3><span class="read-more">Read article →</span></div>
+      </a>
+      <a href="article-soc2-iso.html" class="blog-card reveal">
+        <div class="img"><img src="https://images.unsplash.com/photo-1633409361618-c73427e4e206?auto=format&fit=crop&w=800&q=80" alt=""/></div>
+        <div class="body"><div class="meta">GRC · 5 min</div><h3>From SOC 2 to ISO 27001: mapping controls without redoing the work</h3><span class="read-more">Read article →</span></div>
+      </a>
+      <a href="article-ransomware.html" class="blog-card reveal">
+        <div class="img"><img src="https://images.unsplash.com/photo-1551434678-e076c223a692?auto=format&fit=crop&w=800&q=80" alt=""/></div>
+        <div class="body"><div class="meta">Incident Response · 9 min</div><h3>Anatomy of a 30-minute ransomware containment</h3><span class="read-more">Read article →</span></div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<div id="site-footer"></div>
+<script src="assets/js/partials.js"></script>
+<script src="assets/js/main.js"></script>
+</body>
+</html>

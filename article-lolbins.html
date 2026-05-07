@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Hunting living-off-the-land binaries with UEBA — G'Secure Labs</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+<div class="bg-grid"></div>
+<div id="site-header"></div>
+
+<section class="article-hero">
+  <div class="container">
+    <div class="breadcrumb"><a href="index.html">Home</a> / <a href="insights.html">Insights</a> / Article</div>
+    <div class="meta-row">
+      <span class="pill">Threat Hunting</span>
+      <span>·</span><span>8 min read</span>
+      <span>·</span><span>Published March 2026</span>
+    </div>
+    <h1>Hunting living-off-the-land binaries with UEBA</h1>
+    <p class="lede">Native Windows binaries leave thin signal trails on purpose. Behavior-based correlation is the most reliable way to catch them — but only if your hunting hypotheses are precise.</p>
+    <div class="author">
+      <img src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fit=crop&w=200&q=80" alt="Priya Anand"/>
+      <div><strong>Priya Anand</strong><span>Chief Threat Officer</span></div>
+    </div>
+  </div>
+</section>
+
+<div class="article-cover reveal">
+  <img src="https://images.unsplash.com/photo-1510511459019-5dda7724fd87?auto=format&fit=crop&w=1600&q=80" alt="Threat hunting analyst"/>
+</div>
+
+<article class="article-body">
+  <p>An attacker who lives off the land does not need to drop new files. They reach for the binaries already trusted on your endpoints — <code>certutil</code>, <code>bitsadmin</code>, <code>mshta</code>, <code>rundll32</code>, <code>wmic</code>, PowerShell. The signature world is mostly blind to this. Behavior, in contrast, is loud.</p>
+
+  <p>Here is how we structure a quarterly LOLBin hunt with the UEBA telemetry most mature SOCs already collect.</p>
+
+  <h2>Step 1 — define the corpus</h2>
+  <p>Pick a focused list rather than the entire LOLBAS catalog. We rotate among three monthly:</p>
+  <ul>
+    <li><strong>Download primitives:</strong> <code>certutil -urlcache</code>, <code>bitsadmin /transfer</code>, <code>powershell IEX</code></li>
+    <li><strong>Execution wrappers:</strong> <code>mshta</code>, <code>rundll32</code>, <code>regsvr32</code></li>
+    <li><strong>Discovery and lateral:</strong> <code>wmic</code>, <code>net</code>, <code>nltest</code>, <code>dsquery</code></li>
+  </ul>
+
+  <h2>Step 2 — build the behavioral baseline</h2>
+  <p>For each binary, query the last 90 days and compute a per-asset profile: invocation count, parent process distribution, command-line entropy, network destinations. Those four dimensions cover most of the signal you need.</p>
+
+  <blockquote>
+    The hunt is not "did this binary run?" The hunt is "did this binary run in a way it has never run on this asset before?"
+  </blockquote>
+
+  <h2>Step 3 — score the deviations</h2>
+  <p>Score each invocation by how far it sits from the baseline. We use four weighted features:</p>
+  <ol>
+    <li>New parent process for this binary on this asset</li>
+    <li>Command-line entropy more than 2 standard deviations above the asset's mean</li>
+    <li>Outbound connection to a domain not previously seen in this binary's network history</li>
+    <li>Time-of-day outside the asset's normal activity window</li>
+  </ol>
+  <p>Anything scoring above a threshold becomes a hunt candidate. We keep thresholds tight — false positives waste analyst time and erode trust in the hunt.</p>
+
+  <h2>Step 4 — pivot from candidate to chain</h2>
+  <p>A single anomalous LOLBin invocation is rarely the whole story. Pivot to the broader 30-minute window:</p>
+  <ul>
+    <li>What user authenticated on this asset before the invocation?</li>
+    <li>What other suspicious processes ran in the same session?</li>
+    <li>Did the asset reach out to any new external IPs?</li>
+    <li>Were any sensitive files accessed in the same window?</li>
+  </ul>
+  <p>If the chain holds together, you have an incident. If not, you have a candidate worth tagging for the next sweep.</p>
+
+  <div class="callout">
+    <div class="ic">🔍</div>
+    <div>
+      <strong>Want a sample hunt query pack?</strong><br>
+      We maintain a small set of detection-as-code queries for Splunk, Sentinel, and Elastic. Free for community use. <a href="contact.html">Request access →</a>
+    </div>
+  </div>
+
+  <h2>What this catches that signatures don't</h2>
+  <p>In our last quarterly review across managed customers, behavioral LOLBin hunts surfaced 23 incidents. Not one of them had triggered a signature-based detection. Six of those incidents were dwell-time longer than 30 days. Behavior catches what signatures cannot, but only if your hypotheses are sharp and your baselines are honest.</p>
+
+  <p>If you are starting from zero, pick one binary, build its baseline, and run the hunt for one month. Treat it as a learning exercise. The methodology generalizes; the artifacts you build the first time become the template for the rest.</p>
+</article>
+
+<div class="article-share">
+  <div class="tag-list">
+    <span class="tag-chip">#threat-hunting</span>
+    <span class="tag-chip">#ueba</span>
+    <span class="tag-chip">#lolbins</span>
+    <span class="tag-chip">#detection</span>
+  </div>
+  <div class="share-buttons">
+    <a href="#" aria-label="Share on LinkedIn">in</a>
+    <a href="#" aria-label="Share on Twitter">𝕏</a>
+    <a href="#" aria-label="Copy link">🔗</a>
+  </div>
+</div>
+
+<section class="related-posts">
+  <div class="container">
+    <h3>Related reading</h3>
+    <div class="blog-grid">
+      <a href="article-alert-fatigue.html" class="blog-card reveal">
+        <div class="img"><img src="https://images.unsplash.com/photo-1614064641938-3bbee52942c7?auto=format&fit=crop&w=800&q=80" alt=""/></div>
+        <div class="body"><div class="meta">SOC Ops · 4 min</div><h3>How we cut alert fatigue 60% with behavioral correlation</h3><span class="read-more">Read article →</span></div>
+      </a>
+      <a href="article-actors.html" class="blog-card reveal">
+        <div class="img"><img src="https://images.unsplash.com/photo-1614064548237-096d5552c61c?auto=format&fit=crop&w=800&q=80" alt=""/></div>
+        <div class="body"><div class="meta">Threat Intel · 4 min</div><h3>Three threat actors to watch in 2026</h3><span class="read-more">Read article →</span></div>
+      </a>
+      <a href="article-ransomware.html" class="blog-card reveal">
+        <div class="img"><img src="https://images.unsplash.com/photo-1551434678-e076c223a692?auto=format&fit=crop&w=800&q=80" alt=""/></div>
+        <div class="body"><div class="meta">Incident Response · 9 min</div><h3>Anatomy of a 30-minute ransomware containment</h3><span class="read-more">Read article →</span></div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<div id="site-footer"></div>
+<script src="assets/js/partials.js"></script>
+<script src="assets/js/main.js"></script>
+</body>
+</html>

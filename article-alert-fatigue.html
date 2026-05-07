@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Cutting alert fatigue with behavioral correlation — G'Secure Labs</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+<div class="bg-grid"></div>
+<div id="site-header"></div>
+
+<section class="article-hero">
+  <div class="container">
+    <div class="breadcrumb"><a href="index.html">Home</a> / <a href="insights.html">Insights</a> / Article</div>
+    <div class="meta-row">
+      <span class="pill">SOC Ops</span>
+      <span>·</span><span>4 min read</span>
+      <span>·</span><span>Published April 2026</span>
+    </div>
+    <h1>How we cut alert fatigue 60% with behavioral correlation</h1>
+    <p class="lede">Most SOCs do not have an alert problem. They have a context problem. Here is how a four-week tuning sprint cut a customer's daily alert volume by 60% without dropping a single true positive.</p>
+    <div class="author">
+      <img src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fit=crop&w=200&q=80" alt="Priya Anand"/>
+      <div><strong>Priya Anand</strong><span>Chief Threat Officer</span></div>
+    </div>
+  </div>
+</section>
+
+<div class="article-cover reveal">
+  <img src="https://images.unsplash.com/photo-1614064641938-3bbee52942c7?auto=format&fit=crop&w=1600&q=80" alt="Network operations dashboard"/>
+</div>
+
+<article class="article-body">
+  <p>The customer's analysts were closing 1,800 alerts a day across two shifts. Roughly 4% were true positives. Burn-out was real, hiring was hard, and the team had stopped looking forward to triage queues. The fix was not a new tool. It was four weeks of disciplined tuning.</p>
+
+  <h2>The diagnosis</h2>
+  <p>We pulled 90 days of closed alerts and clustered them by detection rule, asset, and disposition. Two patterns showed up immediately.</p>
+  <ul>
+    <li>Eleven detection rules generated 62% of all alerts. None of them had ever produced a confirmed incident.</li>
+    <li>The same five service accounts appeared in 41% of "suspicious authentication" alerts. They were all known scanners, vulnerability tools, and backup agents.</li>
+  </ul>
+
+  <h2>The four weeks</h2>
+
+  <h3>Week 1 — kill the noise floor</h3>
+  <p>We disabled the eleven low-yield rules entirely. For each one we wrote a one-line note in the runbook explaining why, so future analysts would not be tempted to switch them back on without context.</p>
+
+  <h3>Week 2 — model the known-good</h3>
+  <p>For the five service accounts, we built behavioral baselines: source IP ranges, target systems, frequency, time-of-day. Anything inside the baseline became a suppressed alert. Anything outside became a high-priority alert.</p>
+
+  <blockquote>
+    Suppression is not the same as deletion. The events still log; they just stop interrupting an analyst.
+  </blockquote>
+
+  <h3>Week 3 — stitch the chains</h3>
+  <p>We replaced 14 single-event detections with three chained correlations. Example: a single failed login is noise. A failed login followed by a successful login from a new geo, followed by a sensitive file read within 15 minutes — that is a story. The chain fires once with all three facts attached.</p>
+
+  <h3>Week 4 — measure and lock</h3>
+  <p>We re-baselined the queue. Average daily alert count had dropped to 720. True positive rate had risen to 11%. Mean time to triage dropped from 14 minutes to 4. We turned the new rules into the customer's official detection set and wrote a one-page runbook for each.</p>
+
+  <h2>Why this worked</h2>
+  <p>The work was not glamorous. It was reading rule logic, writing baselines, and having uncomfortable conversations about which rules were pulling their weight. The lesson we keep relearning: a SOC's effectiveness lives in its detection content, not in its dashboard count.</p>
+
+  <div class="callout">
+    <div class="ic">⚡</div>
+    <div>
+      <strong>Want a free detection-quality review?</strong><br>
+      We will pull 30 days of your alerts, cluster them, and report the noisiest rules and best optimization moves. <a href="contact.html">Book a session →</a>
+    </div>
+  </div>
+
+  <p>If you have an alert-fatigue problem, you do not need a bigger team. You probably need a quieter queue.</p>
+</article>
+
+<div class="article-share">
+  <div class="tag-list">
+    <span class="tag-chip">#soc</span>
+    <span class="tag-chip">#alert-fatigue</span>
+    <span class="tag-chip">#detection-engineering</span>
+    <span class="tag-chip">#tuning</span>
+  </div>
+  <div class="share-buttons">
+    <a href="#" aria-label="Share on LinkedIn">in</a>
+    <a href="#" aria-label="Share on Twitter">𝕏</a>
+    <a href="#" aria-label="Copy link">🔗</a>
+  </div>
+</div>
+
+<section class="related-posts">
+  <div class="container">
+    <h3>Related reading</h3>
+    <div class="blog-grid">
+      <a href="article-lolbins.html" class="blog-card reveal">
+        <div class="img"><img src="https://images.unsplash.com/photo-1510511459019-5dda7724fd87?auto=format&fit=crop&w=800&q=80" alt=""/></div>
+        <div class="body"><div class="meta">Threat Hunting · 8 min</div><h3>Hunting living-off-the-land binaries with UEBA</h3><span class="read-more">Read article →</span></div>
+      </a>
+      <a href="article-ransomware.html" class="blog-card reveal">
+        <div class="img"><img src="https://images.unsplash.com/photo-1551434678-e076c223a692?auto=format&fit=crop&w=800&q=80" alt=""/></div>
+        <div class="body"><div class="meta">Incident Response · 9 min</div><h3>Anatomy of a 30-minute ransomware containment</h3><span class="read-more">Read article →</span></div>
+      </a>
+      <a href="article-actors.html" class="blog-card reveal">
+        <div class="img"><img src="https://images.unsplash.com/photo-1614064548237-096d5552c61c?auto=format&fit=crop&w=800&q=80" alt=""/></div>
+        <div class="body"><div class="meta">Threat Intel · 4 min</div><h3>Three threat actors to watch in 2026</h3><span class="read-more">Read article →</span></div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<div id="site-footer"></div>
+<script src="assets/js/partials.js"></script>
+<script src="assets/js/main.js"></script>
+</body>
+</html>

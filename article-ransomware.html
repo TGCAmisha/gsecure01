@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Anatomy of a 30-minute ransomware containment — G'Secure Labs</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+<div class="bg-grid"></div>
+<div id="site-header"></div>
+
+<section class="article-hero">
+  <div class="container">
+    <div class="breadcrumb"><a href="index.html">Home</a> / <a href="insights.html">Insights</a> / Article</div>
+    <div class="meta-row">
+      <span class="pill">Incident Response</span>
+      <span>·</span><span>9 min read</span>
+      <span>·</span><span>Published February 2026</span>
+    </div>
+    <h1>Anatomy of a 30-minute ransomware containment</h1>
+    <p class="lede">A pan-European retailer faced a fast-moving ransomware campaign on a Friday evening in November. Here is the minute-by-minute story of how auto-containment kept the business running through Black Friday.</p>
+    <div class="author">
+      <img src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fit=crop&w=200&q=80" alt="Priya Anand"/>
+      <div><strong>Priya Anand</strong><span>Chief Threat Officer</span></div>
+    </div>
+  </div>
+</section>
+
+<div class="article-cover reveal">
+  <img src="https://images.unsplash.com/photo-1551434678-e076c223a692?auto=format&fit=crop&w=1600&q=80" alt="Server room emergency"/>
+</div>
+
+<article class="article-body">
+  <p>Friday, 18:47 local. The first alert fired from a regional distribution center. By 19:17, 800 endpoints across three countries had been isolated, the encryption process had been stopped on six of them, and POS systems were back to a clean state. Here is what happened in those 30 minutes — and what made it possible.</p>
+
+  <h2>T+0:00 — The first signal</h2>
+  <p>An EDR agent in the Frankfurt distribution center fired on a process tree we had seen before in the wild: <code>vssadmin delete shadows</code> spawned by a non-admin user account, immediately followed by <code>cipher /w</code> on a network share. The customer's SOC analyst on call escalated to our on-shift Tier 3 within 90 seconds.</p>
+
+  <h2>T+1:30 — Scoping</h2>
+  <p>Tier 3 ran the standard ransomware sweep: every endpoint where the same parent process had launched in the last 60 minutes. Forty-seven hits across three countries. The lateral movement pattern was already obvious — the same user account, the same parent process, the same SMB authentication chain.</p>
+
+  <h2>T+4:00 — Auto-containment armed</h2>
+  <p>The customer's playbook had a pre-approved auto-containment trigger for confirmed ransomware: isolate any endpoint matching the active indicator chain. Tier 3 hit the trigger. The first 47 endpoints went offline within 30 seconds.</p>
+
+  <blockquote>
+    Pre-approved containment is the single highest-leverage decision a CISO can make. It is also the one most often delayed for fear of operational impact.
+  </blockquote>
+
+  <h2>T+8:00 — The chain expands</h2>
+  <p>While containment was running, the chain detector kept matching new endpoints — first 200, then 500, then 800. Every match auto-isolated within seconds of detection. POS terminals were excluded from auto-containment by design and were instead pushed an emergency policy that blocked outbound SMB and disabled the compromised user account locally.</p>
+
+  <h2>T+15:00 — Eradication starts</h2>
+  <p>Forensic analysts began scoping the initial access vector. By minute 15 they had it: a third-party logistics vendor's compromised VPN credential, used to RDP into a jump host. The credential was revoked, the jump host was wiped, and the vendor's outbound IPs were blackholed at the perimeter.</p>
+
+  <h2>T+22:00 — Restoration begins</h2>
+  <p>Endpoints that had been isolated before encryption started were re-imaged from gold. Endpoints where encryption had begun were quarantined for forensics and replaced from spare hardware. POS terminals were never compromised — the emergency policy held.</p>
+
+  <h2>T+30:00 — Stabilized</h2>
+  <p>The active campaign was over. Total impact: zero customer-facing downtime, six partially encrypted endpoints (recovered from backup within four hours), one fully reset vendor relationship.</p>
+
+  <div class="callout">
+    <div class="ic">🛡️</div>
+    <div>
+      <strong>What made this possible</strong><br>
+      Three things, in order of importance: (1) pre-approved auto-containment, (2) chain-based detection that fired on tactic rather than indicator, (3) a tested playbook that the on-call team had drilled in the prior month.
+    </div>
+  </div>
+
+  <h2>What to take away</h2>
+  <ol>
+    <li><strong>Get pre-approval before the incident.</strong> The CIO and General Counsel both need to have signed off on isolation criteria months ago. Negotiating this at 19:00 on a Friday is a losing trade.</li>
+    <li><strong>Detect on tactic, not just IOC.</strong> The shadow-copy deletion + network-share encryption pattern catches campaigns that change indicators between victims.</li>
+    <li><strong>Exclude critical revenue paths from blanket containment, but have a fallback policy.</strong> POS uptime mattered more than full isolation. The fallback policy was good enough.</li>
+    <li><strong>Drill the playbook quarterly.</strong> Speed in incident response is muscle memory.</li>
+  </ol>
+
+  <p>Most ransomware campaigns we see today are over in under an hour from initial detonation. The defenders that win are not the ones who detect first. They are the ones who can act first.</p>
+</article>
+
+<div class="article-share">
+  <div class="tag-list">
+    <span class="tag-chip">#ransomware</span>
+    <span class="tag-chip">#incident-response</span>
+    <span class="tag-chip">#auto-containment</span>
+    <span class="tag-chip">#playbook</span>
+  </div>
+  <div class="share-buttons">
+    <a href="#" aria-label="Share on LinkedIn">in</a>
+    <a href="#" aria-label="Share on Twitter">𝕏</a>
+    <a href="#" aria-label="Copy link">🔗</a>
+  </div>
+</div>
+
+<section class="related-posts">
+  <div class="container">
+    <h3>Related reading</h3>
+    <div class="blog-grid">
+      <a href="article-lolbins.html" class="blog-card reveal">
+        <div class="img"><img src="https://images.unsplash.com/photo-1510511459019-5dda7724fd87?auto=format&fit=crop&w=800&q=80" alt=""/></div>
+        <div class="body"><div class="meta">Threat Hunting · 8 min</div><h3>Hunting living-off-the-land binaries with UEBA</h3><span class="read-more">Read article →</span></div>
+      </a>
+      <a href="article-alert-fatigue.html" class="blog-card reveal">
+        <div class="img"><img src="https://images.unsplash.com/photo-1614064641938-3bbee52942c7?auto=format&fit=crop&w=800&q=80" alt=""/></div>
+        <div class="body"><div class="meta">SOC Ops · 4 min</div><h3>How we cut alert fatigue 60% with behavioral correlation</h3><span class="read-more">Read article →</span></div>
+      </a>
+      <a href="article-actors.html" class="blog-card reveal">
+        <div class="img"><img src="https://images.unsplash.com/photo-1614064548237-096d5552c61c?auto=format&fit=crop&w=800&q=80" alt=""/></div>
+        <div class="body"><div class="meta">Threat Intel · 4 min</div><h3>Three threat actors to watch in 2026</h3><span class="read-more">Read article →</span></div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<div id="site-footer"></div>
+<script src="assets/js/partials.js"></script>
+<script src="assets/js/main.js"></script>
+</body>
+</html>
