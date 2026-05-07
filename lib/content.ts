@@ -1,20 +1,7 @@
 // Single source of truth — content reused from gsecurelabs.com study.
 // Where the existing site has no metric/quote, fields are clearly marked PLACEHOLDER.
-
-import type { LucideIcon } from "lucide-react";
-import {
-  Shield,
-  Radar,
-  ScrollText,
-  Bug,
-  Boxes,
-  Sparkles,
-  Wrench,
-  HeartPulse,
-  Banknote,
-  Zap,
-  Antenna
-} from "lucide-react";
+// Icon fields use string identifiers — resolve via lib/icons.getIcon().
+// (Components are NOT stored here; that would break RSC serialization.)
 
 export type Service = {
   slug: string;
@@ -22,7 +9,7 @@ export type Service = {
   short: string;
   tagline: string;
   description: string;
-  icon: LucideIcon;
+  icon: string;
   capabilities: string[];
   outcomes: { label: string; value: string }[];
   frameworks?: string[];
@@ -36,7 +23,7 @@ export const services: Service[] = [
     tagline: "Detect in 1 minute. Investigate in 10. Respond in 45.",
     description:
       "24/7 threat detection, investigation, and response across endpoint, network, identity, and cloud — combining elite analysts with industry-leading telemetry to neutralize threats before they become incidents.",
-    icon: Radar,
+    icon: "radar",
     capabilities: [
       "Endpoint Detection & Response (EDR)",
       "Network Detection & Response (NDR)",
@@ -61,7 +48,7 @@ export const services: Service[] = [
     tagline: "A purpose-built SOC, fully managed.",
     description:
       "A consolidated security operations center delivered as a service — a single pane of glass across detection tooling, telemetry, and response, run by certified analysts in tier 1, 2, and 3 rotations.",
-    icon: Shield,
+    icon: "shield",
     capabilities: [
       "SIEM design, deployment & tuning",
       "Tier 1/2/3 analyst coverage 24×7",
@@ -83,7 +70,7 @@ export const services: Service[] = [
     tagline: "Compliance, simplified — across every framework you operate under.",
     description:
       "Strategy, advisory, and operationalization across the regulatory frameworks your industry demands — from European Union directives to US healthcare and financial standards.",
-    icon: ScrollText,
+    icon: "scrolltext",
     capabilities: [
       "Regulatory readiness assessments",
       "Policy & control framework development",
@@ -117,7 +104,7 @@ export const services: Service[] = [
     tagline: "Find what attackers will find — before they do.",
     description:
       "Adversary-grade testing across infrastructure, applications, cloud, and people. Goal-oriented engagements run by certified offensive operators — every finding mapped to risk, exploitability, and remediation effort.",
-    icon: Bug,
+    icon: "bug",
     capabilities: [
       "External & internal network testing",
       "Web & mobile application testing",
@@ -139,7 +126,7 @@ export const services: Service[] = [
     tagline: "Security baked into every release, not bolted on after.",
     description:
       "Shift-left application security across SAST, DAST, IAST, SCA, and secure code review — integrated into your existing CI/CD without slowing engineering down.",
-    icon: Boxes,
+    icon: "boxes",
     capabilities: [
       "Static (SAST) & dynamic (DAST) testing",
       "Software composition analysis (SCA)",
@@ -161,7 +148,7 @@ export const services: Service[] = [
     tagline: "Enterprise-grade protection, right-sized for growing organizations.",
     description:
       "Curated, opinionated security baseline for businesses that need protection without the complexity — managed endpoint, identity, email, and backup, delivered as one service.",
-    icon: Sparkles,
+    icon: "sparkles",
     capabilities: [
       "Managed EDR for endpoints",
       "Email security & phishing defense",
@@ -183,7 +170,7 @@ export const services: Service[] = [
     tagline: "An embedded security practice — without the headcount.",
     description:
       "A dedicated, multi-disciplinary security team operating as an extension of your organization — strategy, engineering, operations, and governance, all under one accountable function.",
-    icon: Wrench,
+    icon: "wrench",
     capabilities: [
       "Embedded CISO advisory",
       "Security engineering",
@@ -205,7 +192,7 @@ export type Industry = {
   name: string;
   hero: string;
   description: string;
-  icon: LucideIcon;
+  icon: string;
   regulations: string[];
   threats: string[];
   outcomes: string[];
@@ -218,7 +205,7 @@ export const industries: Industry[] = [
     hero: "Protecting patient data, devices, and care delivery.",
     description:
       "Healthcare cybersecurity has moved from compliance checkbox to clinical safety concern. We help hospitals, payers, and life-sciences organizations across the Nordics, DACH, UK, and North America protect patient data, medical devices, and care continuity — without disrupting clinicians.",
-    icon: HeartPulse,
+    icon: "heartpulse",
     regulations: ["HIPAA", "NIS2", "GDPR", "MDR (EU Medical Device Regulation)", "HITRUST"],
     threats: ["Ransomware on EHR systems", "Connected medical device exploits", "Supply-chain compromise", "Insider data exposure"],
     outcomes: [
@@ -234,7 +221,7 @@ export const industries: Industry[] = [
     hero: "Cyber resilience for an industry under constant fire.",
     description:
       "Banks, insurers, and capital-markets firms are under regulatory pressure unlike any other sector — DORA, CSRD, PSD2, and national supervisory regimes all converging. We deliver cyber resilience programmes calibrated to financial-sector risk appetites and audit expectations.",
-    icon: Banknote,
+    icon: "banknote",
     regulations: ["DORA", "NIS2", "PSD2", "PCI DSS", "CSRD", "GDPR", "SOC 2"],
     threats: ["Wire-fraud and BEC", "Account-takeover at scale", "Third-party operational disruption", "Cloud misconfigurations"],
     outcomes: [
@@ -250,7 +237,7 @@ export const industries: Industry[] = [
     hero: "Securing critical infrastructure across IT and OT.",
     description:
       "Power, water, oil & gas, and renewables operators face threats spanning corporate IT, industrial control systems, and the IoT edge. Our energy-sector practice spans both worlds — bringing IT-grade detection to the OT environment without disrupting safety or availability.",
-    icon: Zap,
+    icon: "zap",
     regulations: ["NIS2", "EU Cyber Resilience Act", "NERC CIP", "IEC 62443"],
     threats: ["ICS/SCADA exploitation", "Ransomware on operational systems", "Insider sabotage", "Nation-state intrusion"],
     outcomes: [
@@ -266,7 +253,7 @@ export const industries: Industry[] = [
     hero: "Protecting the networks the world runs on.",
     description:
       "Telecom operators sit at the intersection of national infrastructure, consumer privacy, and complex multi-vendor networks. We help carriers, MNOs, and digital-services arms strengthen detection, threat intelligence, and incident response across their entire estate.",
-    icon: Antenna,
+    icon: "antenna",
     regulations: ["NIS2", "GDPR", "ENISA technical guidelines", "national telecom security acts"],
     threats: ["Signaling-layer attacks (SS7, Diameter)", "Subscriber data exposure", "DDoS at carrier scale", "Supply-chain (5G vendor) risk"],
     outcomes: [

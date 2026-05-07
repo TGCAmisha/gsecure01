@@ -2,13 +2,14 @@ import Link from "next/link";
 import { ArrowRight, ArrowUpRight, Check, AlertTriangle } from "lucide-react";
 import type { Industry } from "@/lib/content";
 import { industries, services } from "@/lib/content";
+import { getIcon } from "@/lib/icons";
 import { Reveal, SectionHeading } from "./Section";
 import { Breadcrumbs } from "./Breadcrumbs";
 import { CtaBlock } from "./CtaBlock";
 import { ParticleNetwork } from "./ParticleNetwork";
 
 export function IndustryDetail({ industry }: { industry: Industry }) {
-  const Icon = industry.icon;
+  const Icon = getIcon(industry.icon);
   const related = industries.filter((i) => i.slug !== industry.slug);
   const offerSlugs = ["mdr", "soc", "grc", "vapt"];
   const offers = services.filter((s) => offerSlugs.includes(s.slug));
@@ -125,7 +126,7 @@ export function IndustryDetail({ industry }: { industry: Industry }) {
           </Reveal>
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 mt-10">
             {offers.map((s, i) => {
-              const SI = s.icon;
+              const SI = getIcon(s.icon);
               return (
                 <Reveal key={s.slug} delay={i * 0.05}>
                   <Link href={`/services/${s.slug}`} className="glass card-hover rounded-xl p-5 block h-full group">
@@ -150,7 +151,7 @@ export function IndustryDetail({ industry }: { industry: Industry }) {
           </Reveal>
           <div className="grid sm:grid-cols-3 gap-5 mt-10">
             {related.map((i, idx) => {
-              const RI = i.icon;
+              const RI = getIcon(i.icon);
               return (
                 <Reveal key={i.slug} delay={idx * 0.06}>
                   <Link href={`/industries/${i.slug}`} className="glass card-hover rounded-xl p-6 block group h-full">

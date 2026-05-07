@@ -8,6 +8,7 @@ import { Reveal, SectionHeading } from "@/components/Section";
 import { ServiceCard } from "@/components/ServiceCard";
 import { CtaBlock } from "@/components/CtaBlock";
 import { services, industries, caseStudies, insights, stats } from "@/lib/content";
+import { getIcon } from "@/lib/icons";
 
 export default function Home() {
   return (
@@ -164,7 +165,7 @@ export default function Home() {
           </Reveal>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-12">
             {industries.map((ind, i) => {
-              const Icon = ind.icon;
+              const Icon = getIcon(ind.icon);
               return (
                 <Reveal key={ind.slug} delay={i * 0.06}>
                   <Link

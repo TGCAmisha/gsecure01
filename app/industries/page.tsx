@@ -5,6 +5,7 @@ import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { CtaBlock } from "@/components/CtaBlock";
 import { ParticleNetwork } from "@/components/ParticleNetwork";
 import { industries } from "@/lib/content";
+import { getIcon } from "@/lib/icons";
 
 export const metadata = { title: "Industries — G'Secure Labs" };
 
@@ -34,7 +35,7 @@ export default function IndustriesIndex() {
         <div className="container-x">
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
             {industries.map((ind, i) => {
-              const Icon = ind.icon;
+              const Icon = getIcon(ind.icon);
               return (
                 <Reveal key={ind.slug} delay={i * 0.06}>
                   <Link href={`/industries/${ind.slug}`} className="group glass card-hover rounded-xl p-6 h-full block relative overflow-hidden">

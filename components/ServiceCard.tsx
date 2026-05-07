@@ -4,9 +4,10 @@ import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 import { motion } from "framer-motion";
 import type { Service } from "@/lib/content";
+import { getIcon } from "@/lib/icons";
 
 export function ServiceCard({ service, index = 0 }: { service: Service; index?: number }) {
-  const Icon = service.icon;
+  const Icon = getIcon(service.icon);
   return (
     <motion.div
       initial={{ opacity: 0, y: 30 }}

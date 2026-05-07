@@ -2,13 +2,14 @@ import Link from "next/link";
 import { ArrowRight, ArrowUpRight, Check } from "lucide-react";
 import type { Service } from "@/lib/content";
 import { services, caseStudies } from "@/lib/content";
+import { getIcon } from "@/lib/icons";
 import { Reveal, SectionHeading } from "./Section";
 import { Breadcrumbs } from "./Breadcrumbs";
 import { CtaBlock } from "./CtaBlock";
 import { ParticleNetwork } from "./ParticleNetwork";
 
 export function ServiceDetail({ service }: { service: Service }) {
-  const Icon = service.icon;
+  const Icon = getIcon(service.icon);
   const related = services.filter((s) => s.slug !== service.slug).slice(0, 3);
   const relatedCases = caseStudies.filter((cs) => cs.service.toLowerCase().includes(service.short.toLowerCase())).slice(0, 2);
 
@@ -151,7 +152,7 @@ export function ServiceDetail({ service }: { service: Service }) {
           </Reveal>
           <div className="grid md:grid-cols-3 gap-5 mt-10">
             {related.map((s, i) => {
-              const RIcon = s.icon;
+              const RIcon = getIcon(s.icon);
               return (
                 <Reveal key={s.slug} delay={i * 0.06}>
                   <Link href={`/services/${s.slug}`} className="glass card-hover rounded-xl p-6 block h-full group">
