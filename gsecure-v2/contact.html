@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Contact | G'Secure Labs</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&family=Roboto+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<script>tailwind.config={theme:{extend:{colors:{brand:{orange:'#faa61a',orangeSoft:'#ffd07a',deep:'#004a80',bright:'#0077d0',ink:'#0a0c10',surface:'#11141a',surface2:'#161a22',mute:'#6a7280',body:'#c6c8ca'}},fontFamily:{sans:['Roboto'],mono:['"Roboto Mono"']}}}}</script>
+<link rel="stylesheet" href="assets/style.css">
+</head><body class="overflow-x-hidden">
+<div id="nav-mount"></div>
+
+<section class="relative pt-12 pb-20 overflow-hidden">
+  <div class="absolute inset-0 grid-mask"></div>
+  <div class="orb orb-orange drift1" style="width:420px;height:420px;top:-100px;right:-60px"></div>
+  <div class="orb orb-blue drift2" style="width:460px;height:460px;bottom:-180px;left:-80px"></div>
+  <div class="relative max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-12 items-start">
+    <div>
+      <div class="text-[12px] text-brand-mute font-mono mb-6 reveal"><a href="index.html" class="hover:text-brand-orange">Home</a> / <span class="text-brand-orange">Contact</span></div>
+      <div class="eyebrow text-brand-orange mb-5 reveal">Talk to Us</div>
+      <h1 class="h-mega text-white reveal">Let's <span class="grad-text">harden</span> what matters.</h1>
+      <p class="mt-6 text-brand-body text-[17px] max-w-xl reveal">Whether you need 24×7 MDR, a compliance audit or an incident-response retainer — our team will get back within one business day.</p>
+      <div class="mt-10 grid sm:grid-cols-2 gap-4 reveal">
+        <div class="card p-5"><div class="eyebrow text-brand-orange mb-2">Phone</div><div class="text-white font-mono">+46 733 690899</div></div>
+        <div class="card p-5"><div class="eyebrow text-brand-orange mb-2">Email</div><div class="text-white font-mono break-all">consult@gsecurelabs.com</div></div>
+      </div>
+    </div>
+    <form class="card card-elev p-7 reveal" onsubmit="event.preventDefault();this.querySelector('button').textContent='Sent ✓';this.querySelector('button').disabled=true;">
+      <div class="eyebrow text-brand-orange mb-4">Get a Callback</div>
+      <div class="grid sm:grid-cols-2 gap-4">
+        <label class="block"><span class="text-brand-mute text-xs">Full Name</span><input required class="mt-1 w-full bg-brand-surface border border-white/10 rounded-md px-3 py-2.5 text-white outline-none focus:border-brand-orange"></label>
+        <label class="block"><span class="text-brand-mute text-xs">Work Email</span><input type="email" required class="mt-1 w-full bg-brand-surface border border-white/10 rounded-md px-3 py-2.5 text-white outline-none focus:border-brand-orange"></label>
+        <label class="block"><span class="text-brand-mute text-xs">Company</span><input class="mt-1 w-full bg-brand-surface border border-white/10 rounded-md px-3 py-2.5 text-white outline-none focus:border-brand-orange"></label>
+        <label class="block"><span class="text-brand-mute text-xs">Phone</span><input class="mt-1 w-full bg-brand-surface border border-white/10 rounded-md px-3 py-2.5 text-white outline-none focus:border-brand-orange"></label>
+      </div>
+      <label class="block mt-4"><span class="text-brand-mute text-xs">How can we help?</span><textarea rows="4" class="mt-1 w-full bg-brand-surface border border-white/10 rounded-md px-3 py-2.5 text-white outline-none focus:border-brand-orange"></textarea></label>
+      <button class="btn btn-orange w-full justify-center mt-5">Send Message</button>
+    </form>
+  </div>
+</section>
+
+<section class="relative py-20 bg-brand-surface/30 border-y border-white/5"><div class="max-w-7xl mx-auto px-6">
+  <div class="max-w-2xl mb-12 reveal"><div class="eyebrow text-brand-orange mb-3">Global Offices</div><h2 class="h-section text-white">15 offices, <span class="grad-text">one operating model</span>.</h2></div>
+  <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4" id="offices"></div>
+</div></section>
+
+<div id="cta-mount"></div>
+<div id="footer-mount"></div>
+<script src="assets/app.js"></script>
+<script>
+const OFFICES = [
+  ['🇧🇪','Brussels','Belgium','Avenue Louise 65, Brussels','+32 2 555 0100'],
+  ['🇨🇦','Toronto','Canada','100 King Street W, Toronto','+1 416 555 0100'],
+  ['🇩🇰','Copenhagen','Denmark','Vesterbrogade 12, Copenhagen','+45 33 55 01 00'],
+  ['🇫🇮','Helsinki','Finland','Mannerheimintie 12, Helsinki','+358 9 555 0100'],
+  ['🇫🇷','Paris','France','Avenue des Champs-Élysées 50, Paris','+33 1 55 55 0100'],
+  ['🇩🇪','Frankfurt','Germany','Mainzer Landstraße 50, Frankfurt','+49 69 555 0100'],
+  ['🇮🇳','Ahmedabad','India','SG Highway, Ahmedabad','+91 79 5555 0100'],
+  ['🇮🇸','Reykjavik','Iceland','Borgartún 21, Reykjavik','+354 555 0100'],
+  ['🇳🇴','Oslo','Norway','Karl Johans gate 23, Oslo','+47 23 55 0100'],
+  ['🇿🇦','Johannesburg','South Africa','Sandton Drive, Johannesburg','+27 11 555 0100'],
+  ['🇳🇱','Zoetermeer','Netherlands','Boerhaavelaan 40, Zoetermeer','+31 79 555 0100'],
+  ['🇸🇪','Kista','Sweden (HQ)','Isafjordsgatan 30A, 16440 Kista','+46 733 690899'],
+  ['🇦🇪','Dubai','UAE','Sheikh Zayed Road, Dubai','+971 4 555 0100'],
+  ['🇬🇧','London','UK','Canary Wharf, London E14','+44 20 5555 0100'],
+  ['🇺🇸','Houston','USA','Westheimer Road, Houston TX','+1 713 555 0100'],
+];
+document.getElementById('offices').innerHTML = OFFICES.map(([f,c,co,a,p])=>`
+  <div class="card p-5 reveal">
+    <div class="flex items-center gap-2 mb-2"><span class="text-2xl">${f}</span><div><div class="text-white font-bold">${c}</div><div class="text-brand-mute text-[12px]">${co}</div></div></div>
+    <div class="text-brand-body text-[13px] mt-3">${a}</div>
+    <div class="text-brand-mute text-[12px] font-mono mt-1">${p}</div>
+  </div>`).join('');
+mountChrome('contact.html');
+</script>
+</body></html>
