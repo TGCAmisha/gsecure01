@@ -2,8 +2,8 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>The rise of AI-assisted phishing — G'Secure Labs</title>
-<meta name="description" content="Why generative AI is changing the phishing landscape and what defenders should do about it."/>
+<title>Article — G'Secure Labs</title>
+<meta name="description" content="Insights, research and field notes from the G'Secure Labs team."/>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/css/style.css">
 </head>
@@ -13,95 +13,34 @@
 
 <section class="article-hero">
   <div class="container">
-    <div class="breadcrumb"><a href="index.html">Home</a> / <a href="insights.html">Insights</a> / Article</div>
+    <div class="breadcrumb"><a href="index.html">Home</a> / <a href="insights.html">Insights</a> / <span id="crumb-cat">Article</span></div>
     <div class="meta-row">
-      <span class="pill">Threat Research</span>
-      <span>·</span><span>5 min read</span>
-      <span>·</span><span>Published May 2026</span>
+      <span class="pill" id="a-cat">Article</span>
+      <span>·</span><span id="a-read">— min read</span>
+      <span>·</span><span id="a-date">—</span>
     </div>
-    <h1>The rise of AI-assisted phishing — what defenders should do now</h1>
-    <p class="lede">Generative AI has lowered the cost of writing convincing phishing lures to near zero. Detection rules that relied on broken grammar are no longer enough. Here's what's changed and where to refocus your controls.</p>
+    <h1 id="a-title">Loading…</h1>
+    <p class="lede" id="a-lede">—</p>
     <div class="author">
-      <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=200&q=80" alt="Marie Dubois"/>
+      <img id="a-author-img" src="https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=200&q=80" alt=""/>
       <div>
-        <strong>Marie Dubois</strong>
-        <span>Head of Threat Research</span>
+        <strong id="a-author-name">G'Secure Team</strong>
+        <span id="a-author-role">G'Secure Labs</span>
       </div>
     </div>
   </div>
 </section>
 
 <div class="article-cover reveal">
-  <img src="https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=1600&q=80" alt="Abstract data visualization"/>
+  <img id="a-cover" src="" alt=""/>
 </div>
 
-<article class="article-body">
-  <p>For more than a decade, phishing awareness training leaned on a comforting fiction: that attackers wrote badly. Misspellings, broken grammar, and stilted English were the easiest tells. Users were taught to spot them. Filters were tuned to flag them. The model worked.</p>
-
-  <p>That model is now obsolete. Generative AI has made fluent, context-aware, native-language phishing essentially free to produce at scale. The change is not subtle, and it forces a rethink of where phishing controls should live.</p>
-
-  <h2>What actually changed</h2>
-
-  <p>Three things shifted at the same time, and they compound:</p>
-
-  <ul>
-    <li><strong>Linguistic fluency.</strong> Lures are now grammatically clean, locally idiomatic, and tonally appropriate to the target's industry.</li>
-    <li><strong>Personalization at scale.</strong> Public profile data scraped from LinkedIn, GitHub, and conference talks is fed into a generator to produce thousands of unique, specific messages.</li>
-    <li><strong>Multi-channel pretexting.</strong> A single campaign now coordinates email, SMS, voicemail, and Teams or Slack messages — each reinforcing the others.</li>
-  </ul>
-
-  <blockquote>
-    The grammar tell is dead. We have to assume every phish that lands in a user's inbox reads like it was written by a colleague.
-  </blockquote>
-
-  <h2>Where the new tells live</h2>
-
-  <p>Content-based detection still has a role, but the higher-confidence signals have moved to <em>context</em> and <em>behavior</em>. The questions to ask now are different:</p>
-
-  <ol>
-    <li>Has this sender ever communicated with this recipient before?</li>
-    <li>Is the request consistent with the sender's normal pattern (volume, time of day, topics)?</li>
-    <li>Does the linked domain resolve to infrastructure with a recent registration date or a thin reputation?</li>
-    <li>Are multiple recipients in different geographies receiving variations of the same message in the same hour?</li>
-  </ol>
-
-  <p>None of those signals depend on what the message <em>says</em>. They depend on how it behaves relative to the rest of the environment — which is exactly the kind of correlation a SOC with good telemetry can do, and a content filter alone cannot.</p>
-
-  <h2>A practical 90-day plan</h2>
-
-  <p>If you want to put pressure on this threat without a budget cycle, three moves return outsized value:</p>
-
-  <h3>1. Tune your detections away from grammar</h3>
-  <p>Audit your current email security rules. Anything keyed on "broken English," common misspellings of brand names, or phrases like "kindly" — retire or downweight. They produce noise on legitimate non-native-speaker mail and miss the new generation of clean lures entirely.</p>
-
-  <h3>2. Push hard on sender-behavior baselines</h3>
-  <p>Whether you're using Microsoft Defender, Proofpoint, Mimecast, or a SIEM correlation rule, configure or build a "first-time external sender + financial language + link" composite signal. It's one of the highest-precision single rules we deploy.</p>
-
-  <h3>3. Make reporting frictionless</h3>
-  <p>Awareness training is most useful as a <em>reporting</em> driver, not a content-spotting drill. A one-click report button that goes straight to the SOC will outperform any quiz. Measure success by report rate, not click rate.</p>
-
-  <div class="callout">
-    <div class="ic">⚡</div>
-    <div>
-      <strong>Want a phishing readiness review?</strong><br>
-      Our threat research team will run a 60-minute audit of your current email controls and detection rules — free for qualified enterprises. <a href="contact.html">Book a session →</a>
-    </div>
-  </div>
-
-  <h2>What this doesn't change</h2>
-
-  <p>One thing is worth saying plainly: the underlying social engineering tactics haven't really shifted. Urgency, authority, scarcity, and curiosity are still the levers attackers pull. AI just makes the lever-pulling cheaper and more convincing. The defensive instinct — slow the user down, give them a path to verify, reward them for reporting — remains correct. The tooling to support it just has to get better, faster.</p>
-
-  <p>Phishing is going to feel different over the next year. The grammar shortcut is gone. The work that replaces it lives in your telemetry and in your culture, not in your awareness slides.</p>
+<article class="article-body" id="a-body">
+  <p>Loading article…</p>
 </article>
 
 <div class="article-share">
-  <div class="tag-list">
-    <span class="tag-chip">#phishing</span>
-    <span class="tag-chip">#ai-threats</span>
-    <span class="tag-chip">#email-security</span>
-    <span class="tag-chip">#detection</span>
-  </div>
+  <div class="tag-list" id="a-tags"></div>
   <div class="share-buttons">
     <a href="#" aria-label="Share on LinkedIn">in</a>
     <a href="#" aria-label="Share on Twitter">𝕏</a>
@@ -112,20 +51,7 @@
 <section class="related-posts">
   <div class="container">
     <h3>Related reading</h3>
-    <div class="blog-grid">
-      <a href="article.html" class="blog-card reveal">
-        <div class="img"><img src="https://images.unsplash.com/photo-1614064641938-3bbee52942c7?auto=format&fit=crop&w=800&q=80" alt=""/></div>
-        <div class="body"><div class="meta">SOC Ops · 4 min</div><h3>How we cut alert fatigue 60% with behavioral correlation</h3><span class="read-more">Read article →</span></div>
-      </a>
-      <a href="article.html" class="blog-card reveal">
-        <div class="img"><img src="https://images.unsplash.com/photo-1510511459019-5dda7724fd87?auto=format&fit=crop&w=800&q=80" alt=""/></div>
-        <div class="body"><div class="meta">Threat Hunting · 8 min</div><h3>Hunting living-off-the-land binaries with UEBA</h3><span class="read-more">Read article →</span></div>
-      </a>
-      <a href="article.html" class="blog-card reveal">
-        <div class="img"><img src="https://images.unsplash.com/photo-1614064548237-096d5552c61c?auto=format&fit=crop&w=800&q=80" alt=""/></div>
-        <div class="body"><div class="meta">Threat Intel · 4 min</div><h3>Three threat actors to watch in 2026</h3><span class="read-more">Read article →</span></div>
-      </a>
-    </div>
+    <div class="blog-grid" id="related-grid"></div>
   </div>
 </section>
 
@@ -145,6 +71,368 @@
 <div id="site-footer"></div>
 <script src="assets/js/partials.js"></script>
 <script src="assets/js/main.js"></script>
+
+<script>
+/* ======== Article content store ======== */
+const ARTICLES = {
+  'ai-phishing': {
+    cat:'Threat Research', read:'5 min read', date:'Published May 2026',
+    title:'The rise of AI-assisted phishing — what defenders should do now',
+    lede:'Generative AI has lowered the cost of writing convincing phishing lures to near zero. Detection rules that relied on broken grammar are no longer enough. Here is what changed and where to refocus your controls.',
+    author:['Marie Dubois','Head of Threat Research','https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=200&q=80'],
+    cover:'https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=1600&q=80',
+    tags:['#phishing','#ai-threats','#email-security','#detection'],
+    body:`
+      <p>For more than a decade, phishing awareness training leaned on a comforting fiction: that attackers wrote badly. Misspellings, broken grammar, and stilted English were the easiest tells. Users were taught to spot them. Filters were tuned to flag them. The model worked.</p>
+      <p>That model is now obsolete. Generative AI has made fluent, context-aware, native-language phishing essentially free to produce at scale.</p>
+      <h2>What actually changed</h2>
+      <p>Three things shifted at the same time, and they compound:</p>
+      <ul>
+        <li><strong>Linguistic fluency.</strong> Lures are grammatically clean, locally idiomatic, and tonally appropriate.</li>
+        <li><strong>Personalization at scale.</strong> Public profile data is fed into generators to produce thousands of unique messages.</li>
+        <li><strong>Multi-channel pretexting.</strong> A single campaign now coordinates email, SMS, voicemail, and chat — each reinforcing the others.</li>
+      </ul>
+      <blockquote>The grammar tell is dead. We have to assume every phish that lands in a user's inbox reads like it was written by a colleague.</blockquote>
+      <h2>Where the new tells live</h2>
+      <p>The higher-confidence signals have moved to <em>context</em> and <em>behavior</em>. Has this sender ever communicated with this recipient before? Is the request consistent with the sender's normal pattern? Does the linked domain resolve to thin-reputation infrastructure?</p>
+      <h2>A practical 90-day plan</h2>
+      <h3>1. Tune detections away from grammar</h3>
+      <p>Audit current email security rules. Anything keyed on "broken English" — retire or downweight. They produce noise on legitimate non-native-speaker mail and miss clean lures entirely.</p>
+      <h3>2. Push hard on sender-behavior baselines</h3>
+      <p>Configure or build a "first-time external sender + financial language + link" composite signal. It is one of the highest-precision single rules we deploy.</p>
+      <h3>3. Make reporting frictionless</h3>
+      <p>A one-click report button that goes straight to the SOC will outperform any quiz. Measure success by report rate, not click rate.</p>
+      <div class="callout"><div class="ic">⚡</div><div><strong>Want a phishing readiness review?</strong><br>Our threat research team will run a 60-minute audit of your current email controls. <a href="contact.html">Book a session →</a></div></div>
+    `
+  },
+  'dora': {
+    cat:'Compliance', read:'7 min read', date:'Published April 2026',
+    title:'DORA is here: a practical readiness checklist for financial services',
+    lede:'The Digital Operational Resilience Act applies in full from January 2025. If your audit prep still looks like a spreadsheet of policy bullets, you are behind. Here is the checklist we walk every financial-services client through.',
+    author:['James O\'Connor','VP, GRC Practice','https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&w=200&q=80'],
+    cover:'https://images.unsplash.com/photo-1563206767-5b18f218e8de?auto=format&fit=crop&w=1600&q=80',
+    tags:['#dora','#compliance','#financial-services','#operational-resilience'],
+    body:`
+      <p>DORA is not just another regulation to bolt onto an existing GRC program. Its requirements cut across IT operations, third-party risk, incident reporting, and board governance — and the depth of evidence regulators expect goes well beyond what most institutions have collected for prior frameworks.</p>
+      <h2>1. ICT risk management framework</h2>
+      <ul>
+        <li>Documented ICT risk register with owners, treatment plans, and review cadence</li>
+        <li>Board-approved risk appetite statement, with measurable thresholds</li>
+        <li>Asset inventory tied to business processes, not just IP addresses</li>
+        <li>Defined recovery time and recovery point objectives per critical function</li>
+      </ul>
+      <h3>Common gap</h3>
+      <p>An asset inventory exists, but it lives in spreadsheets that no one updates. Tie discovery to your CMDB or EDR feed and treat the spreadsheet as a downstream report, not a source of truth.</p>
+      <h2>2. ICT-related incident reporting</h2>
+      <ul>
+        <li>Severity classification scheme aligned to DORA categories</li>
+        <li>Initial-notification, intermediate-report, and final-report templates ready to fire</li>
+        <li>Clock-driven escalation playbook (4 hours, 72 hours, 1 month windows)</li>
+      </ul>
+      <blockquote>The reporting timer starts when the incident is classified as major — not when you finish investigating. Tune your playbook accordingly.</blockquote>
+      <h2>3. Digital operational resilience testing</h2>
+      <ul>
+        <li>Annual basic test program covering all critical ICT systems</li>
+        <li>Threat-led penetration test (TLPT) every three years for systemically important institutions</li>
+        <li>Independent provider for TLPT scope</li>
+      </ul>
+      <h2>4. Third-party risk and concentration</h2>
+      <ul>
+        <li>Pre-contract risk assessment template covering criticality, sub-outsourcing, and exit</li>
+        <li>Register of information formatted to the EBA template</li>
+        <li>Documented exit strategy for every critical contract — not just a clause, an actual plan</li>
+      </ul>
+      <h2>What to do this quarter</h2>
+      <ol>
+        <li><strong>Close the asset inventory gap.</strong> Without a defensible single source of truth, every other pillar wobbles.</li>
+        <li><strong>Run a tabletop on the 4-hour notification window.</strong> You will discover handoff problems on paper that you do not want to discover live.</li>
+        <li><strong>Draft a real exit plan for one critical provider.</strong> Use it as a template for the rest.</li>
+      </ol>
+      <div class="callout"><div class="ic">📋</div><div><strong>Need this as a working document?</strong><br>We have a 60-page DORA readiness workbook with mapped controls and evidence requests. <a href="contact.html">Request a copy →</a></div></div>
+    `
+  },
+  'alert-fatigue': {
+    cat:'SOC Ops', read:'4 min read', date:'Published April 2026',
+    title:'How we cut alert fatigue 60% with behavioral correlation',
+    lede:'Most SOCs do not have an alert problem. They have a context problem. Here is how a four-week tuning sprint cut a customer\'s daily alert volume by 60% without dropping a single true positive.',
+    author:['Priya Anand','Chief Threat Officer','https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fit=crop&w=200&q=80'],
+    cover:'https://images.unsplash.com/photo-1614064641938-3bbee52942c7?auto=format&fit=crop&w=1600&q=80',
+    tags:['#soc','#alert-fatigue','#detection-engineering','#tuning'],
+    body:`
+      <p>The customer's analysts were closing 1,800 alerts a day across two shifts. Roughly 4% were true positives. Burn-out was real, hiring was hard, and the team had stopped looking forward to triage queues. The fix was not a new tool. It was four weeks of disciplined tuning.</p>
+      <h2>The diagnosis</h2>
+      <p>We pulled 90 days of closed alerts and clustered them by detection rule, asset, and disposition.</p>
+      <ul>
+        <li>Eleven detection rules generated 62% of all alerts. None of them had ever produced a confirmed incident.</li>
+        <li>The same five service accounts appeared in 41% of "suspicious authentication" alerts.</li>
+      </ul>
+      <h2>The four weeks</h2>
+      <h3>Week 1 — kill the noise floor</h3>
+      <p>We disabled the eleven low-yield rules entirely. Each got a one-line note in the runbook explaining why.</p>
+      <h3>Week 2 — model the known-good</h3>
+      <p>For the five service accounts, we built behavioral baselines: source IPs, target systems, frequency, time-of-day. Inside the baseline became suppressed; outside became high priority.</p>
+      <blockquote>Suppression is not the same as deletion. The events still log; they just stop interrupting an analyst.</blockquote>
+      <h3>Week 3 — stitch the chains</h3>
+      <p>We replaced 14 single-event detections with three chained correlations. A failed login is noise. Failed login + new-geo success + sensitive file read in 15 minutes is a story.</p>
+      <h3>Week 4 — measure and lock</h3>
+      <p>Average daily alert count dropped to 720. True positive rate rose to 11%. Mean time to triage dropped from 14 minutes to 4.</p>
+      <p>If you have an alert-fatigue problem, you do not need a bigger team. You probably need a quieter queue.</p>
+      <div class="callout"><div class="ic">⚡</div><div><strong>Want a free detection-quality review?</strong><br>We will pull 30 days of your alerts, cluster them, and report the noisiest rules. <a href="contact.html">Book a session →</a></div></div>
+    `
+  },
+  'lolbins': {
+    cat:'Threat Hunting', read:'8 min read', date:'Published March 2026',
+    title:'Hunting living-off-the-land binaries with UEBA',
+    lede:'Native Windows binaries leave thin signal trails on purpose. Behavior-based correlation is the most reliable way to catch them — but only if your hunting hypotheses are precise.',
+    author:['Priya Anand','Chief Threat Officer','https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fit=crop&w=200&q=80'],
+    cover:'https://images.unsplash.com/photo-1510511459019-5dda7724fd87?auto=format&fit=crop&w=1600&q=80',
+    tags:['#threat-hunting','#ueba','#lolbins','#detection'],
+    body:`
+      <p>An attacker who lives off the land does not need to drop new files. They reach for the binaries already trusted on your endpoints — <code>certutil</code>, <code>bitsadmin</code>, <code>mshta</code>, <code>rundll32</code>, <code>wmic</code>, PowerShell. The signature world is mostly blind to this. Behavior, in contrast, is loud.</p>
+      <h2>Step 1 — define the corpus</h2>
+      <p>Pick a focused list rather than the entire LOLBAS catalog. We rotate among three monthly:</p>
+      <ul>
+        <li><strong>Download primitives:</strong> <code>certutil -urlcache</code>, <code>bitsadmin /transfer</code>, <code>powershell IEX</code></li>
+        <li><strong>Execution wrappers:</strong> <code>mshta</code>, <code>rundll32</code>, <code>regsvr32</code></li>
+        <li><strong>Discovery and lateral:</strong> <code>wmic</code>, <code>net</code>, <code>nltest</code>, <code>dsquery</code></li>
+      </ul>
+      <h2>Step 2 — build the behavioral baseline</h2>
+      <p>For each binary, query the last 90 days and compute a per-asset profile: invocation count, parent process distribution, command-line entropy, network destinations.</p>
+      <blockquote>The hunt is not "did this binary run?" The hunt is "did this binary run in a way it has never run on this asset before?"</blockquote>
+      <h2>Step 3 — score the deviations</h2>
+      <ol>
+        <li>New parent process for this binary on this asset</li>
+        <li>Command-line entropy more than 2 standard deviations above the asset's mean</li>
+        <li>Outbound connection to a domain not previously seen for this binary</li>
+        <li>Time-of-day outside the asset's normal activity window</li>
+      </ol>
+      <h2>Step 4 — pivot from candidate to chain</h2>
+      <p>A single anomalous LOLBin invocation is rarely the whole story. Pivot to the broader 30-minute window: who authenticated, what other suspicious processes ran, what new external IPs were contacted, what sensitive files were touched.</p>
+      <h2>What this catches that signatures don't</h2>
+      <p>In our last quarterly review across managed customers, behavioral LOLBin hunts surfaced 23 incidents. None had triggered a signature-based detection. Six had dwell-time longer than 30 days.</p>
+      <div class="callout"><div class="ic">🔍</div><div><strong>Want a sample hunt query pack?</strong><br>Free for community use across Splunk, Sentinel, and Elastic. <a href="contact.html">Request access →</a></div></div>
+    `
+  },
+  'aws-iam': {
+    cat:'Cloud Security', read:'6 min read', date:'Published March 2026',
+    title:'Hardening AWS IAM: 12 rules we apply to every environment',
+    lede:'IAM is where most cloud breaches start and most cloud audits stall. These twelve rules are the baseline we deploy on day one of every engagement.',
+    author:['Erik Lindqvist','CEO &amp; Co-Founder','https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=200&q=80'],
+    cover:'https://images.unsplash.com/photo-1633265486064-086b219458ec?auto=format&fit=crop&w=1600&q=80',
+    tags:['#aws','#iam','#cloud-security','#hardening'],
+    body:`
+      <p>If you only fix one layer of your AWS estate, fix IAM. Most incidents we respond to in cloud environments trace back to over-permissive policies, dormant access keys, or weak conditions on assume-role trust.</p>
+      <h2>Identity hygiene</h2>
+      <ol>
+        <li><strong>No long-lived access keys for humans.</strong> SSO with MFA for console; short-lived credentials for programmatic.</li>
+        <li><strong>Disable root account access keys.</strong> Use the root account only for the few operations that require it.</li>
+        <li><strong>Rotate service-account keys quarterly.</strong> Use AWS Secrets Manager so rotation is a non-event.</li>
+        <li><strong>Block creation of IAM users.</strong> SCP at the org level. Principals come from your IdP.</li>
+      </ol>
+      <h2>Policy quality</h2>
+      <ol start="5">
+        <li><strong>No <code>"Action": "*"</code> in customer-managed policies.</strong> Scope with conditions if truly needed.</li>
+        <li><strong>Use <code>aws:ResourceTag</code> and <code>aws:PrincipalTag</code> conditions.</strong> Tag-based access scales better than enumerated ARNs.</li>
+        <li><strong>Boundary policies on every privileged role.</strong></li>
+        <li><strong>Deny conditional public S3 access at bucket and account level.</strong></li>
+      </ol>
+      <blockquote>A wildcard action with a tight condition is fine. A wildcard action with no condition is a finding.</blockquote>
+      <h2>Cross-account and federation</h2>
+      <ol start="9">
+        <li><strong>External ID required on every cross-account assume-role trust.</strong> No exceptions.</li>
+        <li><strong>Source-IP conditions on break-glass roles.</strong></li>
+        <li><strong>Session duration capped at one hour for production roles.</strong></li>
+      </ol>
+      <h2>Detection</h2>
+      <ol start="12">
+        <li><strong>CloudTrail organization trail with log-file integrity.</strong> Detection rules for <code>iam:CreateAccessKey</code>, <code>iam:AttachUserPolicy</code>, <code>sts:AssumeRole</code> from new IPs, and any use of root.</li>
+      </ol>
+      <h2>What to do this week</h2>
+      <p>If you cannot fix all twelve in one go, fix these three first: disable root access keys, deny new IAM user creation org-wide, and audit every assume-role trust for missing external IDs.</p>
+      <div class="callout"><div class="ic">☁️</div><div><strong>Want our AWS IAM hardening playbook?</strong><br>Terraform and SCP modules behind these rules. <a href="contact.html">Get the kit →</a></div></div>
+    `
+  },
+  'ransomware': {
+    cat:'Incident Response', read:'9 min read', date:'Published February 2026',
+    title:'Anatomy of a 30-minute ransomware containment',
+    lede:'A pan-European retailer faced a fast-moving ransomware campaign on a Friday evening. Here is the minute-by-minute story of how auto-containment kept the business running through Black Friday.',
+    author:['Priya Anand','Chief Threat Officer','https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fit=crop&w=200&q=80'],
+    cover:'https://images.unsplash.com/photo-1551434678-e076c223a692?auto=format&fit=crop&w=1600&q=80',
+    tags:['#ransomware','#incident-response','#auto-containment','#playbook'],
+    body:`
+      <p>Friday, 18:47 local. The first alert fired from a regional distribution center. By 19:17, 800 endpoints across three countries had been isolated, encryption had been stopped on six of them, and POS systems were back to a clean state.</p>
+      <h2>T+0:00 — The first signal</h2>
+      <p>An EDR agent fired on a process tree we had seen before: <code>vssadmin delete shadows</code> spawned by a non-admin user, immediately followed by <code>cipher /w</code> on a network share. Tier 3 escalation within 90 seconds.</p>
+      <h2>T+1:30 — Scoping</h2>
+      <p>Tier 3 ran the standard ransomware sweep. Forty-seven hits across three countries. Same user account, same parent process, same SMB authentication chain.</p>
+      <h2>T+4:00 — Auto-containment armed</h2>
+      <p>The customer's playbook had a pre-approved trigger. Tier 3 hit it. The first 47 endpoints went offline within 30 seconds.</p>
+      <blockquote>Pre-approved containment is the single highest-leverage decision a CISO can make. It is also the one most often delayed for fear of operational impact.</blockquote>
+      <h2>T+8:00 — The chain expands</h2>
+      <p>While containment was running, the chain detector kept matching new endpoints — first 200, then 500, then 800. POS terminals were excluded from auto-containment by design and instead got an emergency policy that blocked outbound SMB and disabled the compromised user account.</p>
+      <h2>T+15:00 — Eradication</h2>
+      <p>Forensic analysts scoped the initial access vector: a third-party logistics vendor's compromised VPN credential, used to RDP into a jump host. Credential revoked, jump host wiped, vendor's outbound IPs blackholed.</p>
+      <h2>T+22:00 — Restoration</h2>
+      <p>Endpoints isolated before encryption began were re-imaged. Endpoints where encryption had begun were quarantined for forensics. POS terminals never compromised — emergency policy held.</p>
+      <h2>T+30:00 — Stabilized</h2>
+      <p>Total impact: zero customer-facing downtime, six partially encrypted endpoints, one fully reset vendor relationship.</p>
+      <div class="callout"><div class="ic">🛡️</div><div><strong>What made this possible</strong><br>Three things, in order: pre-approved auto-containment, chain-based detection that fires on tactic rather than indicator, and a tested playbook the team had drilled the prior month.</div></div>
+      <h2>What to take away</h2>
+      <ol>
+        <li>Get pre-approval before the incident. Negotiating at 19:00 on a Friday is a losing trade.</li>
+        <li>Detect on tactic, not just IOC.</li>
+        <li>Exclude critical revenue paths from blanket containment, but have a fallback policy.</li>
+        <li>Drill the playbook quarterly.</li>
+      </ol>
+    `
+  },
+  'soc2-iso': {
+    cat:'GRC', read:'5 min read', date:'Published February 2026',
+    title:'From SOC 2 to ISO 27001: mapping controls without redoing the work',
+    lede:'If you already have a clean SOC 2 Type II, you are 70% of the way to ISO 27001. The trick is mapping the gap precisely instead of starting fresh.',
+    author:['James O\'Connor','VP, GRC Practice','https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&w=200&q=80'],
+    cover:'https://images.unsplash.com/photo-1633409361618-c73427e4e206?auto=format&fit=crop&w=1600&q=80',
+    tags:['#iso-27001','#soc-2','#grc','#compliance'],
+    body:`
+      <p>Most companies that come to us for ISO 27001 already have SOC 2. They are nervous about a second standard because they assume it means double the work. It does not.</p>
+      <h2>What carries over for free</h2>
+      <p>If you have credible evidence for these SOC 2 areas, you can reuse it almost wholesale:</p>
+      <ul>
+        <li>Access management, joiner-mover-leaver, MFA, privileged access</li>
+        <li>Change management and SDLC controls</li>
+        <li>Vendor risk management</li>
+        <li>Incident response process and tabletop history</li>
+        <li>Logging, monitoring, and SIEM operations</li>
+        <li>Encryption at rest and in transit</li>
+      </ul>
+      <h2>What ISO 27001 wants that SOC 2 didn't push hard on</h2>
+      <h3>An information security management system, formally</h3>
+      <p>SOC 2 lets you demonstrate operational controls. ISO 27001 wants the management system around them: policy, scope, leadership commitment, internal audit, management review.</p>
+      <h3>A real risk assessment methodology</h3>
+      <p>SOC 2 references risk; ISO 27001 wants a documented method, applied consistently, with a risk register tied to your statement of applicability.</p>
+      <blockquote>The risk register is the document auditors flip to first. Make it real, make it short, and update it.</blockquote>
+      <h3>Statement of Applicability</h3>
+      <p>The SoA maps Annex A controls to your environment, with justification for each. There is no SOC 2 equivalent.</p>
+      <h2>What to do, in order</h2>
+      <ol>
+        <li>Map your existing SOC 2 controls to Annex A.</li>
+        <li>Identify the genuine gaps — typically 15-25 Annex A controls without a SOC 2 analog.</li>
+        <li>Stand up the ISMS framework.</li>
+        <li>Run an internal audit.</li>
+        <li>Stage 1 audit, then stage 2.</li>
+      </ol>
+      <p>For a SOC 2 Type II-mature company with 100-300 employees, we typically deliver Stage 2 in five months from kickoff.</p>
+      <div class="callout"><div class="ic">📋</div><div><strong>Want our SOC 2 → ISO 27001 mapping spreadsheet?</strong><br>Pre-built with 90+ controls cross-referenced. <a href="contact.html">Request the file →</a></div></div>
+    `
+  },
+  'sast': {
+    cat:'AppSec', read:'6 min read', date:'Published January 2026',
+    title:'Why your SAST keeps missing business-logic flaws',
+    lede:'SAST is excellent at finding patterns it has been taught. Business logic is, by definition, the part it has not. Here is how to fill the gap without doubling your AppSec spend.',
+    author:['Priya Anand','Chief Threat Officer','https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fit=crop&w=200&q=80'],
+    cover:'https://images.unsplash.com/photo-1542831371-29b0f74f9713?auto=format&fit=crop&w=1600&q=80',
+    tags:['#appsec','#sast','#business-logic','#threat-modeling'],
+    body:`
+      <p>Pentests keep finding the same class of issues that your SAST never raises. Coupon codes that stack against the rules. Refund flows that issue value before the source charge clears. Step-up authentication that can be skipped by replaying an earlier session. SAST is not broken. It is being asked to do something it cannot do.</p>
+      <h2>What SAST does well</h2>
+      <p>Pattern matching against known dangerous primitives. SQL string concatenation. Unvalidated deserialization. Hard-coded credentials. For these, modern SAST is fast, cheap, and accurate.</p>
+      <h2>Where it falls down</h2>
+      <p>Business-logic flaws are not patterns. They are violations of intent. The code compiles, the tests pass, the scanner sees nothing wrong — but the flow does something the business never meant to allow:</p>
+      <ul>
+        <li>A discount code that is checked but not invalidated, allowing reuse</li>
+        <li>A multi-step form that lets you submit step three without completing step two</li>
+        <li>An API that accepts a <code>userId</code> in the body and trusts it instead of the session</li>
+      </ul>
+      <blockquote>Business logic vulnerabilities are not bugs in the code. They are mismatches between what the code does and what the business meant for it to do.</blockquote>
+      <h2>What actually catches them</h2>
+      <h3>Threat modeling, before the build</h3>
+      <p>A 90-minute threat model on a feature the size of a checkout flow will surface more business-logic risk than any scanner.</p>
+      <h3>Abuse cases in your test suite</h3>
+      <p>For every "happy path" automated test, write at least one "abuse path." What if the user skips a step? Reuses a token? Submits a value the form was never supposed to send?</p>
+      <h3>Manual code review focused on flows, not files</h3>
+      <p>Read the code following the user's journey. Sign up, log in, place an order, request a refund. You will find issues a file-by-file review never would.</p>
+      <h3>Targeted penetration testing</h3>
+      <p>Scope a quarterly pentest specifically against business-logic abuse. Give the testers a feature, not a URL list.</p>
+      <h2>What to do this quarter</h2>
+      <p>Pick one critical flow — the one that, if abused, would cost you the most. Run a threat model. Write three abuse-case tests. Have a senior engineer read the flow end to end. Then move to the next.</p>
+      <div class="callout"><div class="ic">🎯</div><div><strong>Want a 60-minute threat-model template?</strong><br>The exact agenda our consultants use with product teams. <a href="contact.html">Request the template →</a></div></div>
+    `
+  },
+  'actors': {
+    cat:'Threat Intel', read:'4 min read', date:'Published January 2026',
+    title:'Three threat actor archetypes to watch in 2026',
+    lede:'Forget the named-group merry-go-round for a moment. Three behavioral archetypes are quietly reshaping the threat landscape. Watch the patterns, not the press releases.',
+    author:['Marie Dubois','Head of Threat Research','https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=200&q=80'],
+    cover:'https://images.unsplash.com/photo-1614064548237-096d5552c61c?auto=format&fit=crop&w=1600&q=80',
+    tags:['#threat-intel','#adversary-behavior','#detection','#defense'],
+    body:`
+      <p>Threat-actor names change. Tooling changes. Even target sectors rotate. What stays roughly stable are behavioral archetypes — the way a class of adversary thinks about access, monetization, and risk. Three are worth watching closely.</p>
+      <h2>1. The Patient Operator</h2>
+      <p>Lives in your environment for months without doing anything that looks like an attack. Establishes multiple persistent footholds, harvests credentials, maps your trust relationships, waits for a strategic moment.</p>
+      <p><strong>What they look like in telemetry:</strong> very low signal. Modest credential brute-force, occasional lateral movement that looks like normal admin behavior, slow exfil that does not trip volume thresholds. The hallmark is that nothing on its own is suspicious.</p>
+      <p><strong>How to defend:</strong> long-window UEBA, periodic threat hunts targeted at "what changed in the last quarter," and aggressive credential rotation.</p>
+      <h2>2. The Automation-First Crew</h2>
+      <p>Builds a pipeline before they build a campaign. Some of these crews can complete an end-to-end ransomware deployment in under three hours from initial foothold.</p>
+      <blockquote>The competitive edge is no longer in the malware. It is in the operations.</blockquote>
+      <p><strong>What they look like in telemetry:</strong> rapid sequencing of well-known TTPs in a short window. Recon → privilege escalation → lateral → encryption all within a single business day, often outside business hours.</p>
+      <p><strong>How to defend:</strong> the only effective control is auto-containment with pre-approved triggers. Detection has to translate to action without a manual handoff.</p>
+      <h2>3. The Insider-Adjacent</h2>
+      <p>Not a malicious insider exactly — a contractor, former employee, or third-party support engineer who still has access they should not. Sometimes the access is reused by an external attacker who compromised that person's credentials.</p>
+      <p><strong>What they look like in telemetry:</strong> authentication from unusual geos using legitimate credentials. Sensitive data access that aligns with the user's old role rather than their current one.</p>
+      <p><strong>How to defend:</strong> aggressive joiner-mover-leaver discipline, role-based access reviews every quarter, and behavioral baselines that catch drift.</p>
+      <h2>What unifies all three</h2>
+      <p>None of them rely primarily on novel malware. All three are operationally mature. The defenses that work are not new tools — they are tighter detection content, faster decision-making, and the willingness to contain without waiting for certainty.</p>
+      <div class="callout"><div class="ic">🔍</div><div><strong>Want our quarterly threat brief?</strong><br>Curated by our research team, sent every Tuesday. <a href="contact.html">Subscribe →</a></div></div>
+    `
+  }
+};
+
+const RELATED = {
+  'ai-phishing': ['actors','alert-fatigue','dora'],
+  'dora': ['soc2-iso','ransomware','ai-phishing'],
+  'alert-fatigue': ['lolbins','ransomware','actors'],
+  'lolbins': ['alert-fatigue','actors','ransomware'],
+  'aws-iam': ['sast','soc2-iso','ransomware'],
+  'ransomware': ['lolbins','alert-fatigue','actors'],
+  'soc2-iso': ['dora','aws-iam','ai-phishing'],
+  'sast': ['aws-iam','lolbins','ai-phishing'],
+  'actors': ['ai-phishing','lolbins','ransomware']
+};
+
+function getSlug(){
+  const p = new URLSearchParams(location.search);
+  return p.get('slug') || 'ai-phishing';
+}
+
+function render(){
+  const slug = getSlug();
+  const a = ARTICLES[slug] || ARTICLES['ai-phishing'];
+  document.title = a.title.replace(/&amp;/g,'&') + ' — G\'Secure Labs';
+  document.getElementById('crumb-cat').textContent = a.cat;
+  document.getElementById('a-cat').textContent = a.cat;
+  document.getElementById('a-read').textContent = a.read;
+  document.getElementById('a-date').textContent = a.date;
+  document.getElementById('a-title').innerHTML = a.title;
+  document.getElementById('a-lede').textContent = a.lede;
+  document.getElementById('a-cover').src = a.cover;
+  document.getElementById('a-cover').alt = a.title;
+  document.getElementById('a-author-name').innerHTML = a.author[0];
+  document.getElementById('a-author-role').textContent = a.author[1];
+  document.getElementById('a-author-img').src = a.author[2];
+  document.getElementById('a-author-img').alt = a.author[0];
+  document.getElementById('a-body').innerHTML = a.body;
+  document.getElementById('a-tags').innerHTML = a.tags.map(t=>`<span class="tag-chip">${t}</span>`).join('');
+
+  const rel = RELATED[slug] || Object.keys(ARTICLES).filter(k=>k!==slug).slice(0,3);
+  document.getElementById('related-grid').innerHTML = rel.map(s=>{
+    const r = ARTICLES[s]; if(!r) return '';
+    return `<a href="article.html?slug=${s}" class="blog-card reveal">
+      <div class="img"><img src="${r.cover.replace('w=1600','w=800')}" alt=""/></div>
+      <div class="body"><div class="meta">${r.cat} · ${r.read}</div><h3>${r.title}</h3><span class="read-more">Read article →</span></div>
+    </a>`;
+  }).join('');
+}
+render();
+</script>
 </body>
 </html>
-
