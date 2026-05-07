@@ -616,7 +616,8 @@ export const navigation = {
   resources: [
     { name: "Case Studies", href: "/case-studies" },
     { name: "Insights", href: "/insights" },
-    { name: "News Room", href: "/news" }
+    { name: "News Room", href: "/news" },
+    { name: "DORA Readiness Checker", href: "/tools/dora-readiness" }
   ],
   company: [
     { name: "About Us", href: "/about" },

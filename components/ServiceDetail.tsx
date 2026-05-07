@@ -7,6 +7,7 @@ import { Reveal, SectionHeading } from "./Section";
 import { Breadcrumbs } from "./Breadcrumbs";
 import { CtaBlock } from "./CtaBlock";
 import { ParticleNetwork } from "./ParticleNetwork";
+import { MdrArchitecture } from "./MdrArchitecture";
 
 export function ServiceDetail({ service }: { service: Service }) {
   const Icon = getIcon(service.icon);
@@ -91,6 +92,27 @@ export function ServiceDetail({ service }: { service: Service }) {
           </div>
         </div>
       </section>
+
+      {/* ARCHITECTURE — only for MDR and SOC */}
+      {(service.slug === "mdr" || service.slug === "soc") && (
+        <section className="section bg-navy-deep relative overflow-hidden">
+          <div className="absolute inset-0 bg-grid opacity-30" />
+          <div className="container-x relative">
+            <Reveal>
+              <SectionHeading
+                eyebrow="How it works"
+                title={<>Telemetry in. <span className="text-gradient-signal">Outcomes out.</span></>}
+                subtitle="Every signal from your estate flows into our detection core, where elite analysts and ML-augmented tooling produce three things: detection, investigation, and response — within SLA."
+              />
+            </Reveal>
+            <Reveal delay={0.15}>
+              <div className="mt-12 glass-strong rounded-2xl p-6 lg:p-10">
+                <MdrArchitecture />
+              </div>
+            </Reveal>
+          </div>
+        </section>
+      )}
 
       {/* FRAMEWORKS (only GRC) */}
       {service.frameworks && (

@@ -5,6 +5,7 @@ import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { CtaBlock } from "@/components/CtaBlock";
 import { ParticleNetwork } from "@/components/ParticleNetwork";
 import { stats, leaders, offices, partners } from "@/lib/content";
+import { PortraitAvatar } from "@/components/PortraitAvatar";
 
 export const metadata = { title: "About — G'Secure Labs" };
 
@@ -100,18 +101,8 @@ export default function AboutPage() {
             {leaders.map((l, i) => (
               <Reveal key={l.name} delay={i * 0.06}>
                 <div className="glass rounded-xl p-6 h-full">
-                  <div className="aspect-[4/5] rounded-lg bg-gradient-to-br from-navy-mid to-navy-deep mb-5 relative overflow-hidden">
-                    <div className="absolute inset-0 bg-grid opacity-30" />
-                    <div className="absolute inset-0 grid place-items-center">
-                      <div className="w-20 h-20 rounded-full bg-signal/10 border border-signal/30 grid place-items-center text-signal text-2xl font-mono">
-                        {l.name
-                          .split(" ")
-                          .map((p) => p[0])
-                          .join("")
-                          .replace(/[\[\]]/g, "•")
-                          .slice(0, 2)}
-                      </div>
-                    </div>
+                  <div className="mb-5">
+                    <PortraitAvatar name={l.name} seed={i} />
                   </div>
                   <h3 className="font-semibold text-inkSoft text-lg leading-tight">{l.name}</h3>
                   <div className="text-xs text-signal/85 font-mono uppercase tracking-wider mt-1">{l.role}</div>

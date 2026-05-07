@@ -7,6 +7,7 @@ import { Reveal, SectionHeading } from "./Section";
 import { Breadcrumbs } from "./Breadcrumbs";
 import { CtaBlock } from "./CtaBlock";
 import { ParticleNetwork } from "./ParticleNetwork";
+import { IndustryScene } from "./IndustryScene";
 
 export function IndustryDetail({ industry }: { industry: Industry }) {
   const Icon = getIcon(industry.icon);
@@ -47,18 +48,21 @@ export function IndustryDetail({ industry }: { industry: Industry }) {
             </Reveal>
 
             <Reveal delay={0.15}>
-              <div className="glass-strong rounded-xl p-7 relative overflow-hidden">
-                <div className="absolute inset-0 bg-radial-glow opacity-50" />
-                <div className="relative">
-                  <div className="text-[11px] uppercase tracking-[0.18em] font-mono text-cyan/85 mb-4">
-                    Frameworks we operate under
-                  </div>
-                  <div className="flex flex-wrap gap-2">
-                    {industry.regulations.map((r) => (
-                      <span key={r} className="px-3 py-1.5 rounded-md border border-white/10 bg-white/5 text-xs font-mono text-inkSoft/85">
-                        {r}
-                      </span>
-                    ))}
+              <div className="space-y-5">
+                <IndustryScene slug={industry.slug} />
+                <div className="glass-strong rounded-xl p-6 relative overflow-hidden">
+                  <div className="absolute inset-0 bg-radial-glow opacity-40" />
+                  <div className="relative">
+                    <div className="text-[11px] uppercase tracking-[0.18em] font-mono text-cyan/85 mb-3">
+                      Frameworks we operate under
+                    </div>
+                    <div className="flex flex-wrap gap-2">
+                      {industry.regulations.map((r) => (
+                        <span key={r} className="px-3 py-1.5 rounded-md border border-white/10 bg-white/5 text-xs font-mono text-inkSoft/85">
+                          {r}
+                        </span>
+                      ))}
+                    </div>
                   </div>
                 </div>
               </div>

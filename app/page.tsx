@@ -152,6 +152,36 @@ export default function Home() {
         </div>
       </section>
 
+      {/* TOOL TEASER */}
+      <section className="py-10 md:py-14">
+        <div className="container-x">
+          <Reveal>
+            <Link
+              href="/tools/dora-readiness"
+              className="group relative block rounded-2xl glass-strong p-7 md:p-10 overflow-hidden hover:border-signal/40 transition border border-white/10"
+            >
+              <div className="absolute inset-0 bg-radial-glow opacity-50 pointer-events-none" />
+              <div className="relative flex flex-col md:flex-row md:items-center gap-5 md:gap-8">
+                <div className="hidden md:flex w-14 h-14 rounded-xl bg-signal/10 border border-signal/25 items-center justify-center text-signal shrink-0">
+                  <Sparkles size={22} strokeWidth={1.6} />
+                </div>
+                <div className="flex-1">
+                  <div className="text-[11px] uppercase tracking-[0.18em] text-signal/85 font-mono mb-2">
+                    Free interactive tool · 2 minutes
+                  </div>
+                  <h3 className="text-xl md:text-2xl font-semibold text-inkSoft tracking-tight leading-snug">
+                    How DORA-ready is your programme? <span className="text-gradient-signal">Find out instantly.</span>
+                  </h3>
+                </div>
+                <div className="flex items-center gap-2 text-sm font-semibold text-signal group-hover:translate-x-1 transition-transform">
+                  Try the checker <ArrowRight size={15} />
+                </div>
+              </div>
+            </Link>
+          </Reveal>
+        </div>
+      </section>
+
       {/* INDUSTRIES */}
       <section className="section bg-navy-deep relative overflow-hidden">
         <div className="absolute inset-0 bg-grid opacity-30" />
